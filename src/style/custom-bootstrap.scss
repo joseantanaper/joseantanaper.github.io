@@ -1,0 +1,423 @@
+@import 'variables-app.scss';
+
+/* BOOTSTRAP HACKS -----------------------------------------------------------*/
+@include media-breakpoint-up(sm) {
+  .navbar-nav {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+// @include media-breakpoint-down(md) {
+
+.btn:not([name='app-clock']),
+.nav-link {
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@include media-breakpoint-between(md, lg) {
+  .nav-link {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: $app-button-md-max-width;
+  }
+}
+
+input[type=number] {
+  text-align: right;
+  padding-right: 24px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  position: absolute;
+  cursor: pointer;
+  width: 25% !important;
+  height: 98%;
+  right: 0.05rem;
+  top: 0.05rem;
+}
+
+input.form-control {
+  min-width: 120px;
+}
+
+.col-form-label {
+  /*Label has no borders,
+  and vertically alignment is subtle different compared to inputs and buttons.
+  */
+  border: 0.8px solid transparent !important;
+}
+
+.nav-link {
+  border-radius: $border-radius;
+}
+
+.btn,
+.nav-link,
+.list-group-item,
+.form-control,
+.col-form-label {
+
+  padding: $app-button-y-padding $app-button-x-padding;
+
+  svg {
+    transition: $app-global-quick-transition;
+    min-width: 16px;
+    min-height: 16px;
+    margin-top: -($app-icon-text-margin);
+  }
+
+  svg+span {
+    margin-left: ($app-icon-text-margin);
+  }
+}
+
+.accordion-button {
+  padding: $app-button-y-padding*2 $app-button-x-padding;
+
+  svg {
+    transition: $app-global-quick-transition;
+    min-width: 16px;
+    min-height: 16px;
+  }
+}
+
+.nav-link:active {
+  background: rgba(var(--bs-secondary-bg-rgb), $app-default-opacity);
+}
+
+.nav-link:active {
+  background: rgba(var(--bs-secondary-bg-rgb), $app-active-opacity);
+}
+
+.accordion-button {
+  svg {
+    // margin-top: -($app-icon-text-margin);
+  }
+
+  svg+span {
+    transition: $app-global-quick-transition;
+    padding: 2px 0px 2px 0px;
+    margin-left: ($app-icon-text-margin);
+  }
+}
+
+.btn-group {
+
+  .btn+.btn {
+    // margin-right: -$input-btn-border-width !important;
+    // margin-left: 5px !important;
+    margin-left: -$btn-border-width !important;
+  }
+}
+
+
+.btn,
+.nav-link,
+.accordion-button,
+.list-group-item,
+.navbar-toggler {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* OFFCANVAS -----------------------------------------------------------------*/
+.offcanvas-header {
+  min-height: $app-navbar-height;
+  height: $app-navbar-height;
+  max-height: $app-navbar-height;
+}
+
+.offcanvas-body {
+  padding: 20px;
+}
+
+.modal-backdrop.show,
+.offcanvas-backdrop.show {
+  // opacity: 1;
+  // background-color: rgba(15, 23, 42, 0.5);
+  // transition: 1s;
+  // overflow-y: scroll !important;
+  backdrop-filter: blur(6px) !important;
+  // padding-right: 50px !important;
+}
+
+/* MODAL ---------------------------------------------------------------------*/
+
+h1.modal-title {
+  svg {
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: $app-icon-text-margin;
+    filter: drop-shadow($app-h-global-shadow);
+  }
+}
+
+.modal-body {
+  min-height: 6rem;
+}
+
+/* BUTTONS AND TOGGLERS ------------------------------------------------------*/
+.navbar-toggler {
+  // justify-content: center;
+  // align-items: center;
+  // display: flex;
+  // align-items: center;
+  min-width: $app-navbar-toggler-width;
+  width: $app-navbar-toggler-width;
+  max-width: $app-navbar-toggler-width;
+  min-height: $app-navbar-height - 8px;
+  height: $app-navbar-height - 8px;
+  max-height: $app-navbar-height - 8px;
+  padding: 12px;
+
+  span {}
+
+  svg {
+    transition: $app-global-quick-transition;
+    width: 100% !important;
+    height: 100% !important;
+
+  }
+}
+
+.btn,
+.nav-link,
+.accordion-button,
+.list-group-item,
+.navbar-toggler {
+
+  // opacity: $app-default-opacity;
+  svg {
+    transition: $app-global-quick-transition;
+  }
+
+  svg,
+  span {
+    opacity: $app-default-opacity;
+  }
+}
+
+.btn:not(.btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-danger,
+  .btn-warning,
+  .btn-info,
+  .btn-light,
+  .btn-dark,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-outline-success,
+  .btn-outline-danger,
+  .btn-outline-warning,
+  .btn-outline-info,
+  .btn-outline-light,
+  .btn-outline-dark),
+.nav-link,
+.accordion-button,
+.list-group-item,
+.navbar-toggler {
+
+  transition: $app-global-quick-transition;
+
+}
+
+.btn:not(.btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-danger,
+  .btn-warning,
+  .btn-info,
+  .btn-light,
+  .btn-dark,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-outline-success,
+  .btn-outline-danger,
+  .btn-outline-warning,
+  .btn-outline-info,
+  .btn-outline-light,
+  .btn-outline-dark):hover,
+.nav-link:hover,
+.accordion-button:hover,
+.list-group-item:hover,
+.navbar-toggler:hover {
+
+  // overflow: visible;
+  text-overflow: clip;
+
+  span {
+    // overflow: visible;
+    text-overflow: clip;
+  }
+
+  svg,
+  span {
+    opacity: $app-hover-opacity;
+  }
+
+  svg {
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 3px rgba(var(--bs-emphasis-color-rgb), 0.8));
+  }
+
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-success:hover,
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-info:hover,
+.btn-light:hover,
+.btn-dark:hover,
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover,
+.btn-outline-success:hover,
+.btn-outline-danger:hover,
+.btn-outline-warning:hover,
+.btn-outline-info:hover,
+.btn-outline-light:hover,
+.btn-outline-dark:hover {
+
+  svg,
+  span {
+    opacity: $app-hover-opacity;
+  }
+
+  svg {
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 3px white);
+  }
+}
+
+
+.btn:not(.btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-danger,
+  .btn-warning,
+  .btn-info,
+  .btn-light,
+  .btn-dark,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-outline-success,
+  .btn-outline-danger,
+  .btn-outline-warning,
+  .btn-outline-info,
+  .btn-outline-light,
+  .btn-outline-dark):active,
+.nav-link:active,
+.accordion-button:active,
+.list-group-item:active,
+.navbar-toggler:active {
+  // opacity: $app-active-click-opacity;
+
+  svg,
+  span {
+    opacity: $app-active-click-opacity;
+  }
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-success:active,
+.btn-danger:active,
+.btn-warning:active,
+.btn-info:active,
+.btn-light:active,
+.btn-dark:active,
+.btn-outline-primary:active,
+.btn-outline-secondary:active,
+.btn-outline-success:active,
+.btn-outline-danger:active,
+.btn-outline-warning:active,
+.btn-outline-info:active,
+.btn-outline-light:active,
+.btn-outline-dark:active {
+
+  svg,
+  span {
+    opacity: $app-active-click-opacity;
+  }
+
+}
+
+.btn:not(.btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-danger,
+  .btn-warning,
+  .btn-info,
+  .btn-light,
+  .btn-dark,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-outline-success,
+  .btn-outline-danger,
+  .btn-outline-warning,
+  .btn-outline-info,
+  .btn-outline-light,
+  .btn-outline-dark).active,
+.nav-link.active,
+.accordion-button.active,
+.list-group-item.active,
+.navbar-toggler.active {
+
+  // opacity: $app-active-opacity;
+  background: var(--bs-secondary-bg);
+
+  svg,
+  span {
+    opacity: $app-active-opacity;
+  }
+}
+
+footer {
+  padding-bottom: 80px;
+
+  h5 {
+    border-bottom: 2px solid rgba(var(--bs-secondary-bg-rgb), 1);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+.accordion-button:after {
+  -webkit-filter: grayscale(1) invert(0.6);
+  filter: grayscale(1) invert(0.6);
+}
+
+.carousel {
+
+  .carousel-caption {
+
+    h5 {
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 1px black, 0 0 2px black,
+        0 1px 4px black;
+    }
+
+    p {
+      color: white;
+      text-shadow: 0 0 1px black, 0 0 2px black,
+        0 1px 4px black;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    background: rgba(white, 0.1);
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background: rgba(white, 0.2);
+  }
+
+}

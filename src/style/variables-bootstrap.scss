@@ -1,0 +1,35 @@
+// GLOBAL
+$border-radius: 3px; // // $enable-rounded: false;
+$border-radius-sm: 3px;
+$border-radius-lg: 3px;
+
+// NAVBAR
+$navbar-padding-y: 0px;
+$navbar-toggler-focus-width: 1px;
+$navbar-nav-link-padding-x: 1rem;
+
+// OFFCANVAS
+$offcanvas-padding-y: 3px;
+$offcanvas-horizontal-width: 400px;
+$modal-backdrop-bg: rgba(0 0 0 / 0.4);
+$modal-backdrop-opacity: 1;
+
+// FORMS
+$input-placeholder-color: rgba(var(--bs-secondary-color-rgb), 0.2) !important;
+
+// ACCORDION
+$accordion-button-padding-y: 1rem;
+// $accordion-button-padding-x: 2rem;
+$accordion-icon-width: 1rem;
+$accordion-button-active-color: var(--bs-emphasis-color);
+$accordion-button-active-bg: var(--bs-body-bg);
+$accordion-body-padding-y: 0.6rem;
+$accordion-body-padding-x: 0;
+$list-group-item-padding-y: 0.6rem;
+$list-group-active-bg: var(--bs-secondary-bg);
+$list-group-active-color: var(--bs-text-body);
+$list-group-border-color: rgba(var(--bs-secondary-bg-rgb), 0.4);
+
+// It seems that default value is incongruent, as we can see in btn-group overlaps
+$btn-border-width: 0.05rem;
+$input-btn-border-width: 0.05rem;

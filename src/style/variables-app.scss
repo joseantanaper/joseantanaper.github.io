@@ -1,0 +1,43 @@
+@import 'variables-bootstrap.scss';
+
+$app-btn-active-border-color: rgba(0 0 0 / 0.1) !important;
+
+$app-btn-hover-glow: 0 0 2px white;
+$app-btn-active-glow: 0 0 1px white;
+
+$app-navbar-height: 56.8px;
+$app-navbar-toggler-width: 50px;
+$app-navbar-toggler-height: 40px;
+
+$app-navbar-crystal-opacity: 0.8;
+$app-subnavbar-crystal-opacity: 0.6;
+
+$app-icon-opacity: 0.4;
+$app-icon-opacity-hover: 0.8;
+$app-icon-opacity-active: 0.6;
+$app-icon-opacity-disabled: 0.2;
+
+$app-button-sm-max-width: 5em;
+$app-button-md-max-width: 10em;
+
+/* GLOBAL VARIABLES ----------------------------------------------------------*/
+// $app-bg-hover: var(--bs-tertiary-bg);
+// $app-bg-active: rgba(var(--bs-secondary-bg-rgb), 0.9);
+// $app-bg-active-click: var(--bs-secondary-bg);
+// $app-bg-pending: var(--bs-tertiary-bg);
+
+$app-default-opacity: .7;
+$app-hover-opacity: .8;
+$app-active-opacity: .9;
+$app-active-click-opacity: 1;
+$app-pending-opacity: .6;
+
+$app-icon-text-margin: 0.2rem;
+
+$app-button-x-padding: 1rem;
+$app-button-y-padding: .5rem;
+
+$app-h-global-shadow: 0 1px 1px rgba(0 0 0 / 0.4);
+
+$app-global-animation-duration: 0.2s;
+$app-global-quick-transition: all $app-global-animation-duration ease-in-out;

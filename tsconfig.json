@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["testing-library__jest-dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/config/*"],
+      "@components/*": ["src/components/*"],
+      "@routes/*": ["src/routes/*"],
+      "@app/*": ["src/app/*"],
+      "@bootstrap-scss/*": ["./node_modules/bootstrap/scss/bootstrap"],
+      "@bootstrap-icons-svg/*": [
+        "./node_modules/bootstrap-icons/bootstrap-icons.svg"
+      ],
+      "@bootstrap-js": [
+        "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      ],
+      "@style": ["src/style/*"]
+    }
+  },
+  // "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
