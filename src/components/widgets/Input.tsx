@@ -40,12 +40,17 @@ export const Input = ({
           disabled={disabled}
           onChange={(e) => (onChange ? onChange(e.target.value) : null)}
           // style={{ paddingRight: '26px', minWidth: '120px' }}
-          style={{ ...style, minWidth: '120px', paddingRight: '26px' }}
+          style={{
+            ...style,
+            minWidth: '120px',
+            paddingRight: '26px',
+          }}
         />
         <Icon
           id={IconMap.Search}
           extra="app-search text-primary opacity-50"
           style={{
+            pointerEvents: 'none',
             position: 'absolute',
             top: '14px',
             right: '58px',

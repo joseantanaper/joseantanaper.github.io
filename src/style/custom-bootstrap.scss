@@ -55,12 +55,15 @@ input.form-control {
   border-radius: $border-radius;
 }
 
+.form-control+svg {
+  pointer-events: none;
+}
+
 .btn,
 .nav-link,
 .list-group-item,
 .form-control,
 .col-form-label {
-
   padding: $app-button-y-padding $app-button-x-padding;
 
   svg {
@@ -113,7 +116,6 @@ input.form-control {
     margin-left: -$btn-border-width !important;
   }
 }
-
 
 .btn,
 .nav-link,

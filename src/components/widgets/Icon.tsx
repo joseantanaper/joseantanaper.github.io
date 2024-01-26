@@ -508,7 +508,7 @@ export const Icon = ({
       height={size}
       name={idd}
       className={`bi ${idd} ${extra} ${onClick ? 'app-icon-btn' : ''}`}
-      style={style}
+      style={{ ...style }}
       viewBox="0 0 16 16"
       onClick={() => onClick && onClick()}
     >

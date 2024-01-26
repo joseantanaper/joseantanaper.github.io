@@ -68,18 +68,20 @@ export const NavRouteLinkList = ({ routeLinks, parentIndex }: Props) => {
     let filtered: RouteLink[] = []
     setLinkCount(countLinks())
     if (search) {
+      console.log(routeLinks)
       ;[...routeLinks].forEach((link: RouteLink) => {
         if (
-          link.url.startsWith('/') &&
-          link.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          t(link.title) //Search in translated title
+            .toLocaleLowerCase()
+            .includes(search.toLocaleLowerCase())
         )
           filtered.push(link)
       })
       ;[...routeLinks].forEach((link: RouteLink) => {
         link.items &&
-          link.items.forEach((sublink: RouteLink) => {
+          link.items!.forEach((sublink: RouteLink) => {
             if (
-              sublink.title
+              t(sublink.title) //Search in translated title
                 .toLocaleLowerCase()
                 .includes(search.toLocaleLowerCase())
             )

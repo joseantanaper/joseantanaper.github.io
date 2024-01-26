@@ -4,7 +4,6 @@ import Creation from '@/routes/creation'
 import Counter from '@/routes/miniapps/counter'
 import Todo from '@/routes/miniapps/todo'
 import { IconMap } from '@/components/widgets/Icon'
-import { RouteObject } from 'react-router-dom'
 import { Lorem } from '@/routes/playground/lorem'
 
 export const enum routePath {

@@ -4,6 +4,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '.',
   define: {
     APP_BUILD_TIME: JSON.stringify(
       new Date()

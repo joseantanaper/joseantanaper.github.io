@@ -30,9 +30,9 @@
       "@bootstrap-js": [
         "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
       ],
-      "@style": ["src/style/*"]
+      "@style/*": ["src/style/*"]
     }
   },
-  // "include": ["src"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
