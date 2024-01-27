@@ -9,7 +9,7 @@ export const translationEN = {
     site: 'Site',
     home: {
       title: 'Start',
-      // subtitle: 'Raíz de este Sitio Web',
+      subtitle: 'Root of this Web Site',
       description: `This is a Landing Web Site based on <strong>
       React/Redux</strong> and <strong>Bootstrap</strong> with lots of
       customizations to adapt it to my own preferences. The Site is structured

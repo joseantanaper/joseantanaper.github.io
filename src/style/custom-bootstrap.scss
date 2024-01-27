@@ -133,9 +133,9 @@ input.form-control {
 
 /* OFFCANVAS -----------------------------------------------------------------*/
 .offcanvas-header {
-  min-height: $app-navbar-height;
-  height: $app-navbar-height;
-  max-height: $app-navbar-height;
+  min-height: $app-navbar-height + 0.8px;
+  height: $app-navbar-height + 0.8px;
+  max-height: $app-navbar-height + 0.8px;
 }
 
 .offcanvas-body {
