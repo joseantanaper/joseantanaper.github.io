@@ -1,7 +1,7 @@
 import { Icon, IconMap } from '@components/widgets/Icon'
 import { Menu, MenuProps, MenuPosition } from '@components/menu/elements/Menu'
-import { NavRouteLinkList } from './elements/NavRouteLinkList'
-import { routeLinks, RouteLink } from '@/config/routes/routes'
+import { NavRouteLinkList } from '@components/menu/elements/NavRouteLinkList'
+import { routeLinks, RouteLink } from '@config/routes/routes'
 
 interface Props extends MenuProps {
   routeLinks: RouteLink[]

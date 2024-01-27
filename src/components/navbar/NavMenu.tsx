@@ -1,6 +1,6 @@
 import React from 'react'
-import { RouteLink } from '@/config/routes/routes'
-import { NavLinko } from '../widgets/NavLinko'
+import { RouteLink } from '@config/routes/routes'
+import { NavLinko } from '@components/widgets/NavLinko'
 
 interface Props {
   routeLinks: RouteLink[]

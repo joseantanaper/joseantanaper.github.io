@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Icon, IconMap } from '@components/widgets/Icon'
-import { Button } from '../widgets/Button'
+import { Button } from '@components/widgets/Button'
 import { useAppSelector, useAppDispatch } from '@app/hooks'
 import {
   decrement,

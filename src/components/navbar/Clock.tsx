@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Icon } from '@components/widgets/Icon'
-import { Button } from '../widgets/Button'
+import { Button } from '@components/widgets/Button'
 import { useAppSelector, useAppDispatch } from '@app/hooks'
 
 import {
   setClockMode,
   selectClockMode,
   ClockMode,
-} from '../../app/reducer/app.slice'
+} from '@app/reducer/app.slice'
 
 interface Props {
   currentClockMode: ClockMode
@@ -50,7 +50,7 @@ export const Clock = ({ currentClockMode }: Props) => {
 
   return (
     <>
-      <Button name="app-clock" onClick={handleClick}>
+      <Button name="app-clock" extraClass="" onClick={handleClick}>
         <Icon id="bi-clock" extra="app-rotate" />
         <span>{time.substring(0, time.indexOf(':'))}</span>
         <span className="opacity-50">:</span>

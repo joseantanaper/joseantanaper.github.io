@@ -1,5 +1,5 @@
 import { Icon, IconMap } from '@components/widgets/Icon'
-import { Button } from '../widgets/Button'
+import { Button } from '@components/widgets/Button'
 import { useAppSelector, useAppDispatch } from '@app/hooks'
 import { Theme, setTheme } from '@app/reducer/app.slice'
 import { RootState } from '@app/store'
@@ -28,7 +28,8 @@ export const ThemeToggler = ({
 }: Props) => {
   const dispatch = useAppDispatch()
   const { theme } = useAppSelector((state: RootState) => state.app)
-  document.documentElement.setAttribute('data-bs-theme', currentTheme as Theme)
+
+  // document.documentElement.setAttribute('data-bs-theme', currentTheme as Theme)
 
   const handleClick = (theme?: Theme) => {
     const newTheme: Theme =
@@ -46,12 +47,12 @@ export const ThemeToggler = ({
       {togglerType === TogglerType.Button && (
         <Button onClick={() => handleClick()} extraClass="app-rotate">
           <Icon
-            iconmap={IconMap.Light}
+            iconmap={IconMap.ThemeLight}
             extra="app-rotate"
             style={{ display: theme !== Theme.Dark ? 'none' : 'inline' }}
           />
           <Icon
-            iconmap={IconMap.Dark}
+            iconmap={IconMap.ThemeDark}
             extra="app-rotate"
             style={{ display: theme !== Theme.Dark ? 'inline' : 'none' }}
           />
@@ -66,7 +67,7 @@ export const ThemeToggler = ({
             }`}
             onClick={() => handleClick(Theme.Light)}
           >
-            <Icon iconmap={IconMap.Light} extra="app-rotate" />
+            <Icon iconmap={IconMap.ThemeLight} extra="app-rotate" />
             {label === Label.Yes && (
               <span className="text-capitalize">{Theme.Light}</span>
             )}
@@ -77,7 +78,7 @@ export const ThemeToggler = ({
             }`}
             onClick={() => handleClick(Theme.Dark)}
           >
-            <Icon iconmap={IconMap.Dark} extra="app-rotate" />
+            <Icon iconmap={IconMap.ThemeDark} extra="app-rotate" />
             {label === Label.Yes && (
               <span className="text-capitalize">{Theme.Dark}</span>
             )}

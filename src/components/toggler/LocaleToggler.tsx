@@ -1,11 +1,11 @@
 import React from 'react'
 import { Icon, IconMap } from '@/components/widgets/Icon'
-import { Button } from '../widgets/Button'
+import { Button } from '@components/widgets/Button'
 import { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { useAppDispatch, useAppSelector } from '@app/hooks'
 
 import { useTranslation } from 'react-i18next'
-import { Locale, setLocale, selectLocale } from '@/app/reducer/app.slice'
+import { Locale, setLocale, selectLocale } from '@app/reducer/app.slice'
 
 export const LocaleToggler = () => {
   const dispatch = useAppDispatch()

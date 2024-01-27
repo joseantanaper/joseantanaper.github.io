@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Icon, IconMap } from '@components/widgets/Icon'
-import { Button } from '../widgets/Button'
+import { Button } from '@components/widgets/Button'
 import { Menu, MenuProps, MenuPosition } from '@components/menu/elements/Menu'
 import { Accordion } from '@components/menu/elements/Accordion'
-import { LocaleToggler } from '../toggler/LocaleToggler'
+import { LocaleToggler } from '@components/toggler/LocaleToggler'
 import { t } from 'i18next'
 
 import {
@@ -14,10 +14,14 @@ import {
   setClockMode,
   selectClockMode,
   ClockMode,
-} from '../../app/reducer/app.slice'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { ThemeToggler, TogglerType, Label } from '../toggler/ThemeToggler'
-import { Login } from '../login'
+} from '@app/reducer/app.slice'
+import { useAppDispatch, useAppSelector } from '@app/hooks'
+import {
+  ThemeToggler,
+  TogglerType,
+  Label,
+} from '@components/toggler/ThemeToggler'
+import { Login } from '@components/login'
 
 export const MenuEnd = ({ id, title }: MenuProps) => {
   const dispatch = useAppDispatch()

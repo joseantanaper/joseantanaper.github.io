@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, IconMap } from '@/components/widgets/Icon'
+import { Icon, IconMap } from '@components/widgets/Icon'
 import { useTranslation, Trans } from 'react-i18next'
 
 export interface CarouselItem {

@@ -2,8 +2,8 @@
 // Common Parent Component for AppSlice setttings
 import { ReactNode } from 'react'
 import { NavTitle } from './NavTitle'
-import { IconMap } from '../widgets/Icon'
-import { ButtonToggler } from '../widgets/Button'
+import { IconMap } from '@components/widgets/Icon'
+import { ButtonToggler } from '@components/widgets/Button'
 
 import { t } from 'i18next'
 

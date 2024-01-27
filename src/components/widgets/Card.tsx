@@ -1,12 +1,12 @@
 import React from 'react'
-import { Carousel, CarouselItem } from '@/components/widgets/Carousel'
+import { Carousel, CarouselItem } from '@components/widgets/Carousel'
 import { Icon, IconMap } from '@components/widgets/Icon'
 import { useTranslation, Trans } from 'react-i18next'
 import Title from './Title'
 import { ReactNode } from 'react'
-import { Skill } from '@/routes/portfolio/AcademicItem'
+import { Skill } from '@routes/portfolio/AcademicItem'
 import { SkillLogo } from '@components/widgets/SkillLogo'
-import { CustomBackground } from '../../components/widgets/CustomBackground'
+import { CustomBackground } from '@components/widgets/CustomBackground'
 import vampirekiller from '@assets/audio/vampirekiller.mp3'
 
 interface Props {

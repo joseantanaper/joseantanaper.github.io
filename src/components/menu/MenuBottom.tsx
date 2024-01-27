@@ -1,4 +1,4 @@
-import { Icon } from '../widgets/Icon'
+import { Icon } from '@components/widgets/Icon'
 import { Menu, MenuProps, MenuPosition } from '@components/menu/elements/Menu'
 
 export const MenuBottom = ({ id, title }: MenuProps) => {

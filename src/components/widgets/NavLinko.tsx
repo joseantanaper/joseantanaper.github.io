@@ -1,5 +1,5 @@
-import { RouteLink } from '@/config/routes/routes'
-import { Icon, IconMap } from '@/components/widgets/Icon'
+import { RouteLink } from '@config/routes/routes'
+import { Icon, IconMap } from '@components/widgets/Icon'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 // import { Trans } from 'react-i18next'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, IconMap } from './Icon'
+import { Icon, IconMap } from '@components/widgets/Icon'
 import { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 

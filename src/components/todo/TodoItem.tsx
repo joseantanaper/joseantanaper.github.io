@@ -1,6 +1,6 @@
-import { Icon, IconMap } from '../widgets/Icon'
-import { Button } from '../widgets/Button'
-import { Modal } from '../widgets/Modal'
+import { Icon, IconMap } from '@components/widgets/Icon'
+import { Button } from '@components/widgets/Button'
+import { Modal } from '@components/widgets/Modal'
 
 interface Props {
   todo: string

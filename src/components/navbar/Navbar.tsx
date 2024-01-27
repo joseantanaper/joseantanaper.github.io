@@ -1,21 +1,21 @@
 import { NavLink } from 'react-router-dom'
-import { ButtonToggler } from '../widgets/Button'
-import { ThemeToggler } from '../toggler/ThemeToggler'
-import { MiniCounter } from '../toggler/MiniCounter'
+import { ButtonToggler } from '@components/widgets/Button'
+import { ThemeToggler } from '@components/toggler/ThemeTogglerv2'
+import { MiniCounter } from '@components/toggler/MiniCounter'
 import { MenuEnd } from '@components/menu/MenuEnd'
 import { MenuTop } from '@components/menu/MenuTop'
 import { MenuBottom } from '@components/menu/MenuBottom'
 import { MenuStart } from '@components/menu/MenuStart'
 import { NavMenu } from './NavMenu'
 import { LocaleToggler } from '../toggler/LocaleToggler'
-import { Clock } from './Clock'
-import { NavTitle } from './NavTitle'
+import { Clock } from '@components/navbar/Clock'
+import { NavTitle } from '@components/navbar/NavTitle'
 import { Avataro } from '@/components/widgets/Avataro'
 import { Icon, IconMap } from '@components/widgets/Icon'
 import { useAppSelector } from '@app/hooks'
 
 // import { routeLinks, RouteLink } from '@config/nav.config'
-import { routeLinks, RouteLink } from '@/config/routes/routes'
+import { routeLinks, RouteLink } from '@config/routes/routes'
 
 import { t } from 'i18next'
 
@@ -38,37 +38,37 @@ export const Navbar = ({ title, subtitle }: Props) => {
   const currentLocale = useAppSelector(selectLocale)
   const currentClockMode = useAppSelector(selectClockMode)
 
-  const dividerClass = 'border-start ps-sm-3 me-sm-3'
+  // const dividerClass = 'border-start ps-1 ms-1 ps-sm-2 ms-sm-2 ps-lg-3 ms-lg-3'
+  const dividerClass = 'ps-1 ms-1 ps-sm-2 ms-sm-2 ps-lg-3 ms-lg-3'
 
   return (
     <header>
-      <nav className="app-main-navbar-crystal navbar border-bottom shadow-sm fixed-top text-truncate">
+      <nav className="app-main-navbar-crystal navbar border-bottom shadow-sm fixed-top">
         {/* Navbar Begin */}
         <div className="app-navbar-container container-fluid flex-nowrap">
           <ButtonToggler
             targetId="offcanvasMenuNav"
             iconmap={IconMap.MenuStart}
           />
-
           {/* Title */}
           <NavTitle title={t(title)} subtitle={t(subtitle!)} type={0} />
-
           {/* Menu */}
+
           <div className={`d-none d-lg-block ${dividerClass}`}>
             <NavMenu routeLinks={routeLinks as RouteLink[]} />
           </div>
-
           {/* Buttons */}
+
           <div className={`d-none d-lg-block ${dividerClass}`}>
             <LocaleToggler />
           </div>
-
           {/* Mini Counter */}
+
           <div className={`d-none d-md-block ${dividerClass}`}>
             <MiniCounter />
           </div>
-
           {/* Clock */}
+
           <div className={`d-none d-sm-block ${dividerClass}`}>
             <Clock currentClockMode={currentClockMode} />
           </div>
@@ -77,8 +77,9 @@ export const Navbar = ({ title, subtitle }: Props) => {
           <div className={`${dividerClass}`}>
             <ThemeToggler currentTheme={currentTheme} />
           </div>
+
           <div className={`${dividerClass}`}>
-            <div className="btn-group">
+            <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuTop"
                 className="btn-outline-secondary"
@@ -91,9 +92,19 @@ export const Navbar = ({ title, subtitle }: Props) => {
               />
             </div>
           </div>
-          <ButtonToggler targetId="offcanvasMenuSettings" extraClass="p-0 m-0">
-            <Avataro />
-          </ButtonToggler>
+
+          {/* {divider('d-inline d-sm-none')} */}
+          <div className={`${dividerClass}`}>
+            <div className={`btn-group`}>
+              <ButtonToggler
+                targetId="offcanvasMenuSettings"
+                extraClass="p-0 m-0"
+              >
+                <Avataro />
+              </ButtonToggler>
+            </div>
+          </div>
+
           {/* Navbar End */}
         </div>
 

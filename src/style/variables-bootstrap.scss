@@ -33,3 +33,5 @@ $list-group-border-color: rgba(var(--bs-secondary-bg-rgb), 0.4);
 // It seems that default value is incongruent, as we can see in btn-group overlaps
 $btn-border-width: 0.05rem;
 $input-btn-border-width: 0.05rem;
+
+$btn-disabled-opacity: .4; //.65 default

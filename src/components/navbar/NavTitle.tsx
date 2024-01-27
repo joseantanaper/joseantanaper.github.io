@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import { Icon, IconMap } from '../widgets/Icon'
+import { Icon, IconMap } from '@components/widgets/Icon'
 import { useEffect } from 'react'
 
 interface Props {

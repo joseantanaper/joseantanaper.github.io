@@ -59,7 +59,12 @@ input.form-control {
   pointer-events: none;
 }
 
+.btn-group>.dropdown-toggle-split {
+  padding: $app-button-y-padding $app-button-x-padding - ($app-button-x-padding*0.2);
+}
+
 .btn,
+.dropdown-item,
 .nav-link,
 .list-group-item,
 .form-control,
@@ -182,7 +187,6 @@ h1.modal-title {
     transition: $app-global-quick-transition;
     width: 100% !important;
     height: 100% !important;
-
   }
 }
 
@@ -422,4 +426,9 @@ footer {
     background: rgba(white, 0.2);
   }
 
+}
+
+.dropdown-item.disabled,
+.dropdown-item.disabled.show {
+  opacity: $btn-disabled-opacity;
 }
