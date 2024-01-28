@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-import { logger, router } from '@app/middleware'
+import { logger } from '@app/middleware'
 
 import todosReducer from '@app/reducer/todos.slice'
 import counterReducer from '@app/reducer/counter.slice'
