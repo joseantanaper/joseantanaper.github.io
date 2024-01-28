@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { ButtonToggler } from '@components/widgets/Button'
-import { ThemeToggler } from '@components/toggler/ThemeTogglerv2'
+import { ThemeToggler } from '@/components/toggler/ThemeToggler'
 import { MiniCounter } from '@components/toggler/MiniCounter'
 import { MenuEnd } from '@components/menu/MenuEnd'
 import { MenuTop } from '@components/menu/MenuTop'
@@ -54,12 +54,12 @@ export const Navbar = ({ title, subtitle }: Props) => {
           <NavTitle title={t(title)} subtitle={t(subtitle!)} type={0} />
           {/* Menu */}
 
-          <div className={`d-none d-lg-block ${dividerClass}`}>
+          <div className={`d-none d-lg-block border-start ${dividerClass}`}>
             <NavMenu routeLinks={routeLinks as RouteLink[]} />
           </div>
           {/* Buttons */}
 
-          <div className={`d-none d-lg-block ${dividerClass}`}>
+          <div className={`d-none d-lg-block border-start ${dividerClass}`}>
             <LocaleToggler />
           </div>
           {/* Mini Counter */}

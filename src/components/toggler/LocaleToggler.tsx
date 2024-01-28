@@ -1,6 +1,6 @@
 import React from 'react'
 import { Icon, IconMap } from '@/components/widgets/Icon'
-import { Button } from '@components/widgets/Button'
+import { Button, ButtonSplit } from '@components/widgets/Button'
 import { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@app/hooks'
 
@@ -13,7 +13,11 @@ export const LocaleToggler = () => {
   // const [, /*locale*/ applyLocale] = useState(currentLocale)
   const { i18n } = useTranslation()
 
-  const clickLocale = (locale: Locale) => {
+  const handleClick = (locale?: Locale) => {
+    if (!locale) {
+      locale =
+        !currentLocale || currentLocale === Locale.ES ? Locale.EN : Locale.ES
+    }
     dispatch(setLocale(locale))
     i18n.changeLanguage(locale)
     document.documentElement.setAttribute('lang', locale)
@@ -24,24 +28,43 @@ export const LocaleToggler = () => {
     // i18n.changeLanguage(currentLocale)
   }, [])
 
+  const dropdownMenu = (
+    <>
+      <li className="nav-item">
+        <Button
+          className={`dropdown-item ${
+            currentLocale === Locale.ES ? 'disabled active' : ''
+          }`}
+          iconmap={IconMap.Locale}
+          iconClass="app-rotate"
+          onClick={() => handleClick(Locale.ES)}
+          label={Locale.ES}
+          labelClass="text-capitalize"
+        ></Button>
+      </li>
+      <li className="nav-item">
+        <Button
+          className={`dropdown-item ${
+            currentLocale === Locale.EN ? 'disabled active' : ''
+          }`}
+          iconmap={IconMap.Locale}
+          iconClass="app-rotate"
+          onClick={() => handleClick(Locale.EN)}
+          label={Locale.EN}
+          labelClass="text-capitalize"
+        ></Button>
+      </li>
+    </>
+  )
+
   return (
-    <div className="btn-group">
-      <Button
-        className={`btn text-uppercase  ${
-          currentLocale === Locale.EN ? 'active disabled' : ''
-        }`}
-        iconmap={IconMap.Locale}
-        onClick={() => clickLocale(Locale.EN)}
-        label={Locale.EN.substring(0, 2)}
-      />
-      <Button
-        className={`btn text-uppercase  ${
-          currentLocale === Locale.ES ? 'active disabled' : ''
-        }`}
-        iconmap={IconMap.Locale}
-        onClick={() => clickLocale(Locale.ES)}
-        label={Locale.ES.substring(0, 2)}
-      />
-    </div>
+    <ButtonSplit
+      className={`btn-outline-secondary`}
+      onClick={() => handleClick()}
+      iconmap={IconMap.Locale}
+      label={currentLocale.substring(0, 2)}
+      labelClass="text-uppercase"
+      dropdown={dropdownMenu}
+    ></ButtonSplit>
   )
 }

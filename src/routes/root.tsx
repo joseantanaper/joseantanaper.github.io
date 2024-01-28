@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next'
 
 import { appConfig } from '@config/app.config'
 import { Navbar } from '@components/navbar/Navbar'
+import { Suspense } from 'react'
 
 const Root = () => {
   const currentLocale = useAppSelector(selectLocale)
@@ -76,12 +77,12 @@ const Root = () => {
   const theme = document.documentElement.getAttribute('data-bs-theme')
 
   return (
-    <>
+    <Suspense fallback="loading">
       {/* <div className="app-root"> */}
       <Navbar title={appConfig.title} subtitle={appConfig.subtitle} />
       <Outlet />
       {/* </div> */}
-    </>
+    </Suspense>
   )
 }
 

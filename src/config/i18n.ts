@@ -6,10 +6,14 @@ import { initReactI18next } from 'react-i18next'
 import { translationEN } from './locales/en/translation'
 import { translationES } from './locales/es/translation'
 
+const detectionOptions = {
+  order: ['path'],
+  lookupFromPathIndex: 0,
+}
+
 i18n
-  // .use(detector)
-  .use(backend) // Avoid glitches on page refresh
   .use(detector)
+  .use(backend) // Avoid glitches on page refresh
   .use(initReactI18next)
   .init({
     debug: false,
@@ -19,6 +23,7 @@ i18n
     // have a common namespace used around the full app
     ns: ['translations', 'app'],
     defaultNS: 'translations',
+    detection: detectionOptions,
 
     keySeparator: false, // we use content as keys
 

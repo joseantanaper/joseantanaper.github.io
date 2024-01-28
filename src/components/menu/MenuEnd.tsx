@@ -63,58 +63,12 @@ export const MenuEnd = ({ id, title }: MenuProps) => {
                 <div className="row mb-3">
                   <div className="col">
                     <label className="col-form-label flex-nowrap">
-                      Theme Toggler without Label
+                      Theme Toggler
                     </label>
                   </div>
                   <div className="col">
                     <div className="btn-group float-end">
                       <ThemeToggler currentTheme={currentTheme} />
-                    </div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col flex-wrap">
-                    <label className="col-form-label">
-                      Theme Toggler with Label
-                    </label>
-                  </div>
-                  <div className="col">
-                    <div className="btn-group float-end">
-                      <ThemeToggler
-                        currentTheme={currentTheme}
-                        label={Label.Yes}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <label className="col-form-label">
-                      Theme Selector without Labels
-                    </label>
-                  </div>
-                  <div className="col">
-                    <div className="btn-group float-end">
-                      <ThemeToggler
-                        currentTheme={currentTheme}
-                        togglerType={TogglerType.ButtonSelector}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <label className="col-form-label">
-                      Theme Selector with Labels
-                    </label>
-                  </div>
-                  <div className="col">
-                    <div className="btn-group float-end">
-                      <ThemeToggler
-                        currentTheme={currentTheme}
-                        togglerType={TogglerType.ButtonSelector}
-                        label={Label.Yes}
-                      />
                     </div>
                   </div>
                 </div>
