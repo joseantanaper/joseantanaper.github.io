@@ -39,8 +39,7 @@ export const NavLinko = ({ routeLink, external, mode = 'menu' }: Props) => {
         <span className="small text-body-tertiary ms-3 ps-3 border-start">
           <Icon iconmap={routeLink.parent.iconmap} />
           <span className="text-nowrap text-truncate">
-            {/* {t(routeLink.title)} */}
-            <Trans>***</Trans>
+            {t(routeLink.title)}
           </span>
         </span>
       )}
