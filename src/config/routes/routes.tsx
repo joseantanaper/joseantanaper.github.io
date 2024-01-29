@@ -1,10 +1,10 @@
-import Index from '@/routes/Index'
-import Portfolio from '@/routes/portfolio'
-import Creation from '@/routes/creation'
-import Counter from '@/routes/miniapps/counter'
-import Todo from '@/routes/miniapps/todo'
-import { IconMap } from '@/components/widgets/Icon'
-import { Lorem } from '@/routes/playground/lorem'
+import Index from '@routes/Index'
+import Portfolio from '@routes/portfolio/Index'
+import Creation from '@routes/creation/Index'
+import Counter from '@routes/miniapps/counter'
+import Todo from '@routes/miniapps/todo'
+import { IconMap } from '@components/widgets/Icon'
+import { Lorem } from '@routes/playground/lorem'
 
 export const enum routePath {
   HOME = '/',
@@ -105,6 +105,9 @@ export interface RouteLink {
   iconmap: IconMap
   items?: RouteLink[]
   parent?: RouteLink
+  ttitle?: string
+  tsubtitle?: string
+  tdescription?: string
 }
 
 export const routeLinks: RouteLink[] = [

@@ -12,12 +12,12 @@ const detectionOptions = {
 }
 
 i18n
-  .use(detector)
   .use(backend) // Avoid glitches on page refresh
+  .use(detector)
   .use(initReactI18next)
   .init({
     debug: false,
-    fallbackLng: 'es',
+    fallbackLng: localStorage.getItem('locale') ?? 'es-ES', // Avoid flicker if language is not default
     // lng: 'es',
     // lng: 'en',
     // have a common namespace used around the full app
@@ -32,8 +32,8 @@ i18n
     },
 
     resources: {
-      en: translationEN,
       es: translationES,
+      en: translationEN,
     },
   })
 

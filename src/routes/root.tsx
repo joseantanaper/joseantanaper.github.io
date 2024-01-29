@@ -1,5 +1,6 @@
 // import logo from "../logo.svg"
 // import { Counter } from "../features/menu/Counter"
+import { useSSR } from 'react-i18next'
 import { Outlet, Route } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '@/app/hooks'

@@ -1,13 +1,13 @@
-import { PageLayout, LoaderData } from '@/components/layout/PageLayout'
+import { PageLayout, LoaderData } from '@components/layout/PageLayout'
 import { useLoaderData } from 'react-router-dom'
 import { useTranslation, Trans } from 'react-i18next'
-import Title from '@/components/widgets/Title'
-import { IconMap } from '@/components/widgets/Icon'
-import { Avataro } from '@/components/widgets/Avataro'
+import Title from '@components/widgets/Title'
+import { IconMap } from '@components/widgets/Icon'
+import { Avataro } from '@components/widgets/Avataro'
 import { Summary } from './Summary'
 import { ExperienceList } from './ExperienceList'
 import { AcademicList } from './AcademicList'
-import { Linko } from '@/components/widgets/Linko'
+import { Linko } from '@components/widgets/Linko'
 
 export const Portfolio = () => {
   const { t, i18n } = useTranslation()
@@ -58,6 +58,7 @@ export const Portfolio = () => {
           href="#hobbies"
         />
       </li>
+      <div className="vr"></div>
       <li className="nav-item">
         <Linko iconmap={IconMap.Code} label={`${t('Footer')}`} href="#footer" />{' '}
       </li>

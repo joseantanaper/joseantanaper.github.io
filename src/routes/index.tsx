@@ -45,13 +45,7 @@ const Index = () => {
           href="#section4"
         />{' '}
       </li>
-      {/* <li className="nav-item">
-        <Linko
-          iconmap={IconMap.Code}
-          label={`${t('Section')} #5`}
-          href="#section5"
-        />{' '}
-      </li> */}
+      <div className="vr"></div>
       <li className="nav-item">
         <Linko iconmap={IconMap.Code} label={`${t('Footer')}`} href="#footer" />{' '}
       </li>
@@ -195,40 +189,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-
-      {/* Section 5 */}
-      {/* <div className="container-fluid mb-5">
-        <div className="row">
-          <div className="col text-justify">
-            <h2 id="section5">{t('Section')} #5</h2>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <LoremIpsum p={6} />
-          </div>
-          <div className="col">
-            <div className="bg-black text-center p-2 overflow-hidden rounded-5 shadow">
-              <iframe
-                width="480"
-                height="400"
-                src="https://www.youtube.com/embed/bbwQL_YJCnY?si=qO5WLUJ_W5pxE_IC"
-                title="Arkanoid"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              ></iframe>
-            </div>
-            <br />
-            <div className="text-center mb-5">
-              <span className="app-legend">
-                Arkanoid · アルカノイド. MSX. Taito 1986. Full Insane No-Death
-                Playthrough
-              </span>
-            </div>
-            <LoremIpsum p={2} />
-          </div>
-        </div>
-      </div> */}
     </PageLayout>
   )
 }

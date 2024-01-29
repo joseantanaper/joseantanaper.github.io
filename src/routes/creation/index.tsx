@@ -25,6 +25,7 @@ const Creation = () => {
           href="#creationRetrogaming"
         />
       </li>
+      <div className="vr"></div>
       <li className="nav-item">
         <Linko iconmap={IconMap.Code} label={`${t('Footer')}`} href="#footer" />{' '}
       </li>

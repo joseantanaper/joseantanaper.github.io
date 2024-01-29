@@ -26,6 +26,12 @@ const router = createBrowserRouter([
   },
 ])
 
+// export function InitSSR({ initialI18nStore, initialLanguage }) {
+//   useSSR(initialI18nStore, initialLanguage)
+
+//   return <App />
+// }
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
