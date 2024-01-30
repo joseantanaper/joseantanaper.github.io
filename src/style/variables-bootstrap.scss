@@ -31,7 +31,11 @@ $list-group-active-color: var(--bs-text-body);
 $list-group-border-color: rgba(var(--bs-secondary-bg-rgb), 0.4);
 
 // It seems that default value is incongruent, as we can see in btn-group overlaps
-$btn-border-width: 0.05rem;
-$input-btn-border-width: 0.05rem;
+$border-width: 0.06rem;
+$btn-border-width: $border-width;
+$input-border-width: $border-width;
+// $input-btn-border-width: $border-width;
+// $border-width: 1px !important;
+// $btn-border-width: $border-width;
 
 $btn-disabled-opacity: .4; //.65 default

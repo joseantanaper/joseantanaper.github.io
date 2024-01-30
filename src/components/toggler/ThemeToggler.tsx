@@ -27,7 +27,7 @@ export const ThemeToggler = ({
   togglerType = TogglerType.Button,
   label = Label.No,
 }: Props) => {
-  const buttonStyle = 'btn-outline-secondary'
+  const buttonStyle = ''
   useEffect(() => {})
 
   const dispatch = useAppDispatch()
@@ -117,7 +117,7 @@ export const ThemeToggler = ({
     <>
       <div className="">
         <ButtonSplit
-          className={`btn-outline-secondary`}
+          className={buttonStyle}
           onClick={() => handleClick()}
           iconmap={
             theme === Theme.Light

@@ -30,23 +30,29 @@ export const Login = ({ id }: Props) => {
 
   return (
     <>
-      <div className="container-fluid text-center mt-5">
+      <div className="container-fluid text-center">
         {/* Avatar */}
         <div className="row">
           <div className="col">
             {currentUsername ? (
-              <Avataro size="240px" />
+              // <Avataro size="240px" />
+              <Icon
+                extra="text-success"
+                iconmap={IconMap.Login}
+                style={{ width: 180, height: 180 }}
+              />
             ) : (
               <Icon
-                id="bi-person-slash"
-                style={{ width: 180, height: 180, color: 'red' }}
+                extra="text-danger opacity-25"
+                iconmap={IconMap.Logout}
+                style={{ width: 180, height: 180 }}
               />
             )}
           </div>
         </div>
 
         {/* Message */}
-        <div className="row mt-4 mb-4">
+        <div className="row">
           <div className="col">
             {currentUsername ? (
               <span>
@@ -58,6 +64,11 @@ export const Login = ({ id }: Props) => {
               </span>
             )}
           </div>
+        </div>
+
+        {/* Separator */}
+        <div className="row mb-3">
+          <div className="col"></div>
         </div>
 
         {/* Login Form */}

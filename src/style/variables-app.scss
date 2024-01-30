@@ -12,9 +12,11 @@ $app-navbar-toggler-height: 40px;
 $app-navbar-crystal-opacity: 0.8;
 $app-subnavbar-crystal-opacity: 0.6;
 
-$app-icon-opacity: 0.4;
-$app-icon-opacity-hover: 0.8;
-$app-icon-opacity-active: 0.6;
+// $app-icon-color: $secondary;
+$app-icon-color: var(--bs-body-color);
+$app-icon-opacity: 0.6;
+$app-icon-opacity-hover: 0.7;
+$app-icon-opacity-active: 0.9;
 $app-icon-opacity-disabled: 0.2;
 
 $app-button-sm-max-width: 5em;

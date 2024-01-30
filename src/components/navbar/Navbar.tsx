@@ -26,6 +26,7 @@ import {
   selectTheme,
   selectLocale,
   selectClockMode,
+  selectUsername,
 } from '@app/reducer/app.slice'
 
 interface Props {
@@ -37,6 +38,7 @@ export const Navbar = ({ title, subtitle }: Props) => {
   const currentTheme = useAppSelector(selectTheme)
   const currentLocale = useAppSelector(selectLocale)
   const currentClockMode = useAppSelector(selectClockMode)
+  const currentUsername = useAppSelector(selectUsername)
 
   // const dividerClass = 'border-start ps-1 ms-1 ps-sm-2 ms-sm-2 ps-lg-3 ms-lg-3'
   const dividerClass = 'ps-1 ms-1 ps-sm-2 ms-sm-2 ps-lg-3 ms-lg-3'
@@ -46,10 +48,9 @@ export const Navbar = ({ title, subtitle }: Props) => {
       <nav className="app-main-navbar-crystal navbar border-bottom shadow-sm fixed-top">
         {/* Navbar Begin */}
         <div className="app-navbar-container container-fluid flex-nowrap">
-          <ButtonToggler
-            targetId="offcanvasMenuNav"
-            iconmap={IconMap.MenuStart}
-          />
+          <ButtonToggler targetId="offcanvasMenuNav" extraClass="p-0">
+            <Avataro />
+          </ButtonToggler>
           {/* Title */}
           <NavTitle title={t(title)} subtitle={t(subtitle!)} type={0} />
           {/* Menu */}
@@ -82,7 +83,7 @@ export const Navbar = ({ title, subtitle }: Props) => {
             <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuTop"
-                className="btn-outline-secondary"
+                className=""
                 iconmap={IconMap.MenuTop}
               />
               <ButtonToggler
@@ -98,9 +99,19 @@ export const Navbar = ({ title, subtitle }: Props) => {
             <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuSettings"
-                extraClass="p-0 m-0"
+                extraClass="p-2 m-0"
               >
-                <Avataro />
+                {currentUsername ? (
+                  <Icon
+                    extra="text-success opacity-100"
+                    iconmap={IconMap.Login}
+                  />
+                ) : (
+                  <Icon
+                    extra="text-danger opacity-50"
+                    iconmap={IconMap.Logout}
+                  />
+                )}
               </ButtonToggler>
             </div>
           </div>

@@ -22,6 +22,16 @@ interface Props {
   dropdownBreakdown?: string
 }
 
+const buttonClass = (className: string, extraClass?: string) => {
+  return (
+    (!className
+      ? 'btn'
+      : className.includes('btn-')
+      ? 'btn ' + className
+      : className) + (extraClass ? ` ${extraClass}` : '')
+  )
+}
+
 export const Button = ({
   name,
   className = 'btn',
@@ -78,10 +88,7 @@ export const Button = ({
   return (
     <button
       name={name}
-      className={
-        (className!.includes('btn-') ? `btn ${className}` : `${className}`) +
-        (extraClass ? ` ${extraClass}` : '')
-      }
+      className={buttonClass(className, extraClass)}
       disabled={disabled}
       onClick={() =>
         onClick ? (async ? handleClick(name!) : onClick()) : null
@@ -159,11 +166,7 @@ export const ButtonSplit = ({
       <div className="btn-group">
         <button
           name={name}
-          className={
-            (className!.includes('btn-')
-              ? `btn ${className}`
-              : `${className}`) + (extraClass ? ` ${extraClass}` : '')
-          }
+          className={buttonClass(className, extraClass)}
           disabled={disabled}
           onClick={() =>
             onClick ? (async ? handleClick(name!) : onClick()) : null
@@ -180,14 +183,12 @@ export const ButtonSplit = ({
           ) : null}
           {children ? children : null}
         </button>
+        {/* <div className="vr"></div> */}
         <button
           type="button"
           className={
             `dropdown-toggle dropdown-toggle-split ` +
-            (className!.includes('btn-')
-              ? `btn ${className}`
-              : `${className}`) +
-            (extraClass ? ` ${extraClass}` : '') +
+            buttonClass(className, extraClass) +
             (dropdownBreakdown ? ` d-none d-${dropdownBreakdown}-inline` : '')
           }
           data-bs-toggle="dropdown"
@@ -213,10 +214,7 @@ export const ButtonDismiss = ({
 }: Props) => {
   return (
     <button
-      className={
-        (className!.includes('btn-') ? `btn ${className}` : `${className}`) +
-        (extraClass ? ` ${extraClass}` : '')
-      }
+      className={buttonClass(className, extraClass)}
       disabled={disabled}
       data-bs-dismiss={dismiss}
     >
@@ -243,10 +241,7 @@ export const ButtonToggler = ({
 }: Props) => {
   return (
     <button
-      className={
-        (className!.includes('btn-') ? `btn ${className}` : `${className}`) +
-        (extraClass ? ` ${extraClass}` : '')
-      }
+      className={buttonClass(className, extraClass)}
       type="button"
       data-bs-toggle={toggle}
       data-bs-target={`#${targetId}`}

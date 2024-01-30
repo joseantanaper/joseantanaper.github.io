@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Icon } from '@components/widgets/Icon'
+import { Icon, IconMap } from '@components/widgets/Icon'
 import { Button } from '@components/widgets/Button'
 import { useAppSelector, useAppDispatch } from '@app/hooks'
 
@@ -51,19 +51,21 @@ export const Clock = ({ currentClockMode }: Props) => {
   return (
     <>
       <Button name="app-clock" extraClass="" onClick={handleClick}>
-        <Icon id="bi-clock" extra="app-rotate" />
-        <span>{time.substring(0, time.indexOf(':'))}</span>
-        <span className="opacity-50">:</span>
-        <span>
-          {time.substring(time.indexOf(':') + 1, time.indexOf(':') + 3)}
-        </span>
-        <span className="opacity-50">
-          {currentClockMode === ClockMode.Long ? ':' : null}
-        </span>
-        <span>
-          {currentClockMode === ClockMode.Long
-            ? time.substring(time.indexOf(':') + 4, time.indexOf(':') + 6)
-            : null}
+        <Icon iconmap={IconMap.Clock} extra="app-rotate" />
+        <span className="">
+          <span>{time.substring(0, time.indexOf(':'))}</span>
+          <span className="opacity-50">:</span>
+          <span>
+            {time.substring(time.indexOf(':') + 1, time.indexOf(':') + 3)}
+          </span>
+          <span className="opacity-50">
+            {currentClockMode === ClockMode.Long ? ':' : null}
+          </span>
+          <span>
+            {currentClockMode === ClockMode.Long
+              ? time.substring(time.indexOf(':') + 4, time.indexOf(':') + 6)
+              : null}
+          </span>
         </span>
       </Button>
     </>
