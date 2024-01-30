@@ -6,10 +6,10 @@
 
 body {
   margin: 0;
-  padding: 0;
-  border-top: calc(56px + 56px) solid transparent;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  padding: 0 !important;
+  border-top: calc(56px + 56px) solid transparent !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
   // border-bottom: 500px solid red;
   // height: 100%;
 }

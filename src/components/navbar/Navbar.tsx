@@ -44,7 +44,7 @@ export const Navbar = ({ title, subtitle }: Props) => {
   const dividerClass = 'ps-1 ms-1 ps-sm-2 ms-sm-2 ps-lg-3 ms-lg-3'
 
   return (
-    <header>
+    <>
       <nav className="app-main-navbar-crystal navbar border-bottom shadow-sm fixed-top">
         {/* Navbar Begin */}
         <div className="app-navbar-container container-fluid flex-nowrap">
@@ -83,7 +83,7 @@ export const Navbar = ({ title, subtitle }: Props) => {
             <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuTop"
-                className=""
+                className="btn-outline-secondary"
                 iconmap={IconMap.MenuTop}
               />
               <ButtonToggler
@@ -128,6 +128,6 @@ export const Navbar = ({ title, subtitle }: Props) => {
         <MenuTop id="offcanvasMenuTop" title={t('Menu Top')} />
         <MenuBottom id="offcanvasMenuBottom" title={t('Menu Bottom')} />
       </nav>
-    </header>
+    </>
   )
 }
