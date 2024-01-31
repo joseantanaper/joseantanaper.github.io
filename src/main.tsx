@@ -16,15 +16,19 @@ import {
 } from 'react-router-dom'
 
 import '@config/i18n'
+import i18n from 'i18next'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root />,
-    errorElement: <Error />,
-    children: routes,
-  },
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Root />,
+      errorElement: <Error />,
+      children: routes,
+    },
+  ],
+  { basename: `/${i18n.resolvedLanguage}` }
+)
 
 // export function InitSSR({ initialI18nStore, initialLanguage }) {
 //   useSSR(initialI18nStore, initialLanguage)

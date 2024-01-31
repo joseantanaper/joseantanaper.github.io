@@ -5,6 +5,7 @@ import { Linko } from '@/components/widgets/Linko'
 import { useTranslation, Trans } from 'react-i18next'
 import { Avataro } from '@/components/widgets/Avataro'
 import { useLoaderData } from 'react-router-dom'
+import { useEffect } from 'react'
 import Title from '@/components/widgets/Title'
 
 export interface LoaderData {
@@ -15,6 +16,7 @@ const Index = () => {
   const { t, i18n } = useTranslation()
   const loader = (useLoaderData() as LoaderData) || {}
   const { iconmap } = loader
+
   const toolbar = (
     <>
       <li className="nav-item">
@@ -51,6 +53,10 @@ const Index = () => {
       </li>
     </>
   )
+
+  useEffect(() => {
+    console.log('Index', 'useEffect')
+  }, [])
 
   return (
     <PageLayout subnavbar={true} toolbar={toolbar}>

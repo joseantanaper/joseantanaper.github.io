@@ -23,20 +23,22 @@ const Root = () => {
   const currentTheme = useAppSelector(selectTheme)
   const dispatch = useAppDispatch()
   const { i18n } = useTranslation()
+
   useEffect(() => {
     // Defaults
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>', i18n.resolvedLanguage)
 
     // Check if locale stored. Setting defaults
-    if (!currentLocale) {
-      console.log(
-        'root',
-        `No locale found. Setting default language to i18n: ${i18n.language}`
-      )
-      dispatch(setLocale(i18n.language as Locale))
-    }
+    // if (!currentLocale) {
+    //   console.log(
+    //     'root',
+    //     `No locale found. Setting default language to i18n: ${i18n.language}`
+    //   )
+    //   dispatch(setLocale(i18n.language as Locale))
+    // }
 
     // Sync locale with i18n
-    if (i18n.language !== currentLocale) i18n.changeLanguage(currentLocale)
+    // if (i18n.language !== currentLocale) i18n.changeLanguage(currentLocale)
     // Setting HTML lang
     document.documentElement.setAttribute('lang', currentLocale)
 
@@ -82,6 +84,7 @@ const Root = () => {
       {/* <div className="app-root"> */}
       <Navbar title={appConfig.title} subtitle={appConfig.subtitle} />
       <Outlet />
+      {JSON.stringify(i18n.resolvedLanguage)}
       {/* </div> */}
     </Suspense>
   )

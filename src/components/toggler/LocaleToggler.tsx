@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Icon, IconMap } from '@/components/widgets/Icon'
 import { Button, ButtonSplit } from '@components/widgets/Button'
 import { useState, useEffect } from 'react'
@@ -62,7 +63,7 @@ export const LocaleToggler = () => {
       className={`btn-outline-secondary`}
       onClick={() => handleClick()}
       iconmap={IconMap.Locale}
-      label={currentLocale.substring(0, 2)}
+      label={'*** ' + (currentLocale && currentLocale!.substring(0, 2))}
       labelClass="text-uppercase"
       dropdown={dropdownMenu}
     ></ButtonSplit>

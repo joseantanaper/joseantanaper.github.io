@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '@app/store'
 import { PageLayout } from '@/components/layout/PageLayout'
-import { useTranslation } from 'react-i18next'
+import i18n from 'i18next'
 
 export enum Theme {
   Light = 'light',
@@ -10,8 +10,8 @@ export enum Theme {
 }
 
 export enum Locale {
-  EN = 'en-US',
-  ES = 'es-ES',
+  EN = 'en',
+  ES = 'es',
 }
 
 export enum ClockMode {
@@ -38,7 +38,9 @@ const INITIAL_STATE = {
   username: localStorage.getItem(AppKey.USERNAME) || '',
   theme: localStorage.getItem(AppKey.THEME) ?? Theme.Auto,
   locale:
-    localStorage.getItem(AppKey.LOCALE) ?? localStorage.getItem(AppKey.I18N),
+    localStorage.getItem(AppKey.LOCALE) ||
+    localStorage.getItem(AppKey.I18N) ||
+    'es',
   clockmode: Number(localStorage.getItem(AppKey.CLOCK_MODE)) ?? ClockMode.Short,
 } as AppState
 
@@ -74,9 +76,37 @@ const installTheme = (theme?: Theme) => {
   }
 }
 
+const installLanguage = () => {}
+
 installTheme(INITIAL_STATE.theme)
 
 console.log('app.slice.ts', 'Executed!')
+
+i18n.on('languageChanged', (newLang) => {
+  if (window.location.pathname === '/') {
+    console.log(
+      'app.slice',
+      'languageChanged',
+      'Redirect',
+      window.location.pathname
+    )
+    window.location.pathname = '/' + newLang
+  }
+  // console.log(window.location.pathname)
+  // if (window.location.pathname === '/') {
+  //   console.log(
+  //     'app.slice',
+  //     'languageChanged',
+  //     'Redirect',
+  //     window.location.pathname
+  //   )
+  //   window.location.pathname = '/' + newLang
+  // } else {
+  //   console.log('app.slice', 'languageChanged', 'OK', window.location.pathname)
+  // }
+  // window.location.pathname = '/' + newLang.substring(0, 2)
+  // console.log('languageChanged***', newLang.substring(0, 2))
+})
 
 const appSlice = createSlice({
   name: 'app',
@@ -93,17 +123,6 @@ const appSlice = createSlice({
       state.theme = action.payload ?? selectTheme
       localStorage.setItem(AppKey.THEME, String(state.theme))
       installTheme(state.theme)
-
-      // if (state.theme === Theme.System) {
-      //   const osTheme = mql.matches ? Theme.Dark : Theme.Light
-      //   document.documentElement.setAttribute('data-bs-theme', osTheme)
-      //   document.documentElement.setAttribute('data-bs-theme-mode', 'auto')
-      //   console.log('appSlice', 'setTheme', osTheme, '(OS)')
-      // } else {
-      //   document.documentElement.setAttribute('data-bs-theme', state.theme)
-      //   document.documentElement.removeAttribute('data-bs-theme-mode')
-      //   console.log('appSlice', 'setTheme', state.theme)
-      // }
     },
     setLocale: (state, action: PayloadAction<Locale>) => {
       state.locale = action.payload

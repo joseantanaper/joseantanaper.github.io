@@ -9,6 +9,7 @@ import { translationES } from './locales/es/translation'
 const detectionOptions = {
   order: ['path'],
   lookupFromPathIndex: 0,
+  checkWhiteList: true,
 }
 
 i18n
@@ -16,8 +17,10 @@ i18n
   .use(detector)
   .use(initReactI18next)
   .init({
-    debug: false,
-    fallbackLng: localStorage.getItem('locale') ?? 'es-ES', // Avoid flicker if language is not default
+    debug: true,
+    supportedLngs: ['es', 'en'],
+    fallbackLng: 'en',
+    // fallbackLng: localStorage.getItem('locale') ?? 'es', // Avoid flicker if language is not default
     // lng: 'es',
     // lng: 'en',
     // have a common namespace used around the full app
@@ -29,8 +32,8 @@ i18n
 
     interpolation: {
       escapeValue: false,
+      formatSeparator: '.',
     },
-
     resources: {
       es: translationES,
       en: translationEN,
