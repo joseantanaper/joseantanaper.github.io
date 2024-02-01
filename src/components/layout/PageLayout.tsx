@@ -23,7 +23,8 @@ interface Props {
 }
 
 export const PageLayout = ({ subnavbar = false, toolbar, children }: Props) => {
-  const loader = (useLoaderData() as LoaderData) || {}
+  const loader = (useLoaderData() ?? {}) as LoaderData
+
   const { title, subtitle, description, iconmap } = loader
 
   const { t } = useTranslation()

@@ -6,8 +6,10 @@ import '@style/bootstrap.scss'
 import '@bootstrap-js'
 import Root from '@routes/Root'
 import Error from '@routes/Error'
+import { IconMap } from '@components/widgets/Icon'
+import { Navigate } from 'react-router-dom'
 
-import { routes } from './config/routes/routes'
+import { routes } from '@config/routes/routes'
 
 import {
   // BrowserRouterProps,
@@ -22,12 +24,26 @@ const router = createBrowserRouter(
   [
     {
       path: '/',
+      index: true,
+      element: <Navigate to={`/${i18n.resolvedLanguage}`} />,
+      // Root Redirect to default/stored language
+    },
+    {
+      path: '/:lang',
       element: <Root />,
       errorElement: <Error />,
+      loader: () => {
+        return {
+          title: 'app:home:title',
+          subtitle: 'app:home:subtitle',
+          description: 'app:home:description',
+          iconmap: IconMap.None,
+        }
+      },
       children: routes,
     },
-  ],
-  { basename: `/${i18n.resolvedLanguage}` }
+  ]
+  // { basename: `/${i18n.language}` }
 )
 
 // export function InitSSR({ initialI18nStore, initialLanguage }) {
@@ -36,7 +52,7 @@ const router = createBrowserRouter(
 //   return <App />
 // }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <RouterProvider

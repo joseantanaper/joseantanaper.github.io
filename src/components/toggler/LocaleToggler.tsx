@@ -3,6 +3,7 @@ import React from 'react'
 import { Icon, IconMap } from '@/components/widgets/Icon'
 import { Button, ButtonSplit } from '@components/widgets/Button'
 import { useState, useEffect } from 'react'
+import { useNavigate, useLocation, useResolvedPath } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '@app/hooks'
 
 import { useTranslation } from 'react-i18next'
@@ -11,6 +12,9 @@ import { Locale, setLocale, selectLocale } from '@app/reducer/app.slice'
 export const LocaleToggler = () => {
   const dispatch = useAppDispatch()
   const currentLocale = useAppSelector(selectLocale)
+  const navigate = useNavigate()
+  const location = useLocation()
+  const resolvedPath = useResolvedPath(location)
   // const [, /*locale*/ applyLocale] = useState(currentLocale)
   const { i18n } = useTranslation()
 
@@ -19,8 +23,16 @@ export const LocaleToggler = () => {
       locale =
         !currentLocale || currentLocale === Locale.ES ? Locale.EN : Locale.ES
     }
+
     dispatch(setLocale(locale))
     i18n.changeLanguage(locale)
+
+    navigate(
+      '/' + locale + location.pathname.substring(3, location.pathname.length),
+      {
+        replace: true,
+      }
+    )
     document.documentElement.setAttribute('lang', locale)
   }
 
@@ -63,7 +75,7 @@ export const LocaleToggler = () => {
       className={`btn-outline-secondary`}
       onClick={() => handleClick()}
       iconmap={IconMap.Locale}
-      label={'*** ' + (currentLocale && currentLocale!.substring(0, 2))}
+      label={currentLocale && currentLocale!.substring(0, 2)}
       labelClass="text-uppercase"
       dropdown={dropdownMenu}
     ></ButtonSplit>

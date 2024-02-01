@@ -12,7 +12,7 @@ export interface LoaderData {
   iconmap?: IconMap
 }
 
-const Index = () => {
+const Home = () => {
   const { t, i18n } = useTranslation()
   const loader = (useLoaderData() as LoaderData) || {}
   const { iconmap } = loader
@@ -199,4 +199,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Home

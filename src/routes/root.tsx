@@ -17,16 +17,22 @@ import { useTranslation } from 'react-i18next'
 import { appConfig } from '@config/app.config'
 import { Navbar } from '@components/navbar/Navbar'
 import { Suspense } from 'react'
+import { useLocation, useNavigation, useParams } from 'react-router-dom'
 
 const Root = () => {
   const currentLocale = useAppSelector(selectLocale)
   const currentTheme = useAppSelector(selectTheme)
   const dispatch = useAppDispatch()
   const { i18n } = useTranslation()
+  const location = useLocation()
+
+  const { lang } = useParams()
 
   useEffect(() => {
     // Defaults
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>', i18n.resolvedLanguage)
+
+    dispatch(setLocale(i18n.resolvedLanguage as Locale))
 
     // Check if locale stored. Setting defaults
     // if (!currentLocale) {

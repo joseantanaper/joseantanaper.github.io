@@ -17,6 +17,8 @@ export const NavLinko = ({ routeLink, external, mode = 'menu' }: Props) => {
 
   return (
     <NavLink
+      // isActive only match to the "end"
+      end={true}
       // className={`list-group-item text-nowrap text-truncate list-group-item-action ${className}`}
       className={({ isActive, isPending }) =>
         (isPending ? 'pending' : isActive ? 'active' : '') +

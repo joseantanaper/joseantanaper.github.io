@@ -1,23 +1,129 @@
-import Index from '@routes/Index'
+import Home from '@/routes/Home'
 import Portfolio from '@routes/portfolio/Index'
 import Creation from '@routes/creation/Index'
 import Counter from '@routes/miniapps/counter'
 import Todo from '@routes/miniapps/todo'
 import { IconMap } from '@components/widgets/Icon'
 import { Lorem } from '@routes/playground/lorem'
+import { Navigate } from 'react-router-dom'
 
 export const enum routePath {
-  HOME = '/',
-  PORTFOLIO = '/portfolio',
-  CREATION = '/creation',
-  TODO = '/miniapps/todo',
-  COUNTER = '/miniapps/counter',
-  LOREM = '/playground/lorem',
+  HOME = '',
+  PORTFOLIO = 'portfolio',
+  CREATION = 'creation',
+  TODO = 'miniapps/todo',
+  COUNTER = 'miniapps/counter',
+  LOREM = 'playground/lorem',
 }
+
+export interface RouteLink {
+  // id?: string
+  url: string
+  title: string
+  subtitle?: string
+  description?: string
+  iconmap: IconMap
+  items?: RouteLink[]
+  parent?: RouteLink
+  isGroup?: boolean
+  loader?: any
+  ttitle?: string
+  tsubtitle?: string
+  tdescription?: string
+}
+
+const getRouteLinkByPath = (path: string): RouteLink => {
+  const route: RouteLink = {
+    ...(routes.filter((route) => route.path === path)[0].loader() as RouteLink),
+    url: path,
+  }
+  return route
+}
+
+export const routeLinkIsGroup = (url: string) => {
+  return url.startsWith('#')
+}
+
 export const routes = [
   {
+    index: true,
+    path: routePath.HOME,
+    element: <Home />,
+    loader: () => {
+      return {
+        title: 'app:home:title',
+        subtitle: 'app:home:subtitle',
+        description: 'app:home:description',
+        iconmap: IconMap.Home,
+      }
+    },
+  },
+  {
+    path: routePath.PORTFOLIO,
+    element: <Portfolio />,
+    loader: () => {
+      return {
+        title: 'app:portfolio:title',
+        subtitle: 'app:portfolio:subtitle',
+        description: 'app:portfolio:description',
+        iconmap: IconMap.Portfolio,
+      }
+    },
+  },
+  {
+    path: routePath.CREATION,
+    element: <Creation />,
+    loader: () => {
+      return {
+        title: 'app:creation:title',
+        subtitle: 'app:creation:subtitle',
+        description: 'app:creation:description',
+        iconmap: IconMap.Hobbies,
+      }
+    },
+  },
+  {
+    path: routePath.COUNTER,
+    element: <Counter />,
+    loader: () => {
+      return {
+        title: 'app:counter:title',
+        subtitle: 'app:counter:subtitle',
+        description: 'app:counter:description',
+        iconmap: IconMap.Counter,
+      }
+    },
+  },
+  {
+    path: routePath.TODO,
+    element: <Todo />,
+    loader: () => {
+      return {
+        title: 'app:todo:title',
+        subtitle: 'app:todo:subtitle',
+        description: 'app:todo:description',
+        iconmap: IconMap.Task,
+      }
+    },
+  },
+  {
+    path: routePath.LOREM,
+    element: <Lorem />,
+    loader: () => {
+      return {
+        title: 'app:playground:lorem:loremTitle',
+        subtitle: 'app:playground:lorem:loremSubtitle',
+        description: 'app:playground:lorem:loremDescription',
+        iconmap: IconMap.Locale,
+      }
+    },
+  },
+]
+
+export const _routes = [
+  {
     path: '/',
-    element: <Index />,
+    element: <Home />,
     loader: () => {
       return {
         title: 'app:home:title',
@@ -89,40 +195,22 @@ export const routes = [
   },
 ]
 
-const getRouteByPath = (path: string): RouteLink => {
-  return {
-    ...routes.filter((route) => route.path === path)[0].loader(),
-    url: path,
-  }
-}
-
-export interface RouteLink {
-  // id?: string
-  url: string
-  title: string
-  subtitle?: string
-  description?: string
-  iconmap: IconMap
-  items?: RouteLink[]
-  parent?: RouteLink
-  ttitle?: string
-  tsubtitle?: string
-  tdescription?: string
-}
-
 export const routeLinks: RouteLink[] = [
-  getRouteByPath(routePath.HOME),
-  getRouteByPath(routePath.PORTFOLIO),
-  getRouteByPath(routePath.CREATION),
-  getRouteByPath(routePath.TODO),
-  getRouteByPath(routePath.COUNTER),
+  getRouteLinkByPath(routePath.HOME),
+  getRouteLinkByPath(routePath.PORTFOLIO),
+  getRouteLinkByPath(routePath.CREATION),
+  getRouteLinkByPath(routePath.TODO),
+  getRouteLinkByPath(routePath.COUNTER),
   {
     url: '#0',
     title: 'Playground',
     iconmap: IconMap.Folder,
     items: [
-      { ...getRouteByPath(routePath.LOREM), title: 'Lorem Ipsum' },
-      { ...getRouteByPath(routePath.TODO), title: 'ToDo with title changed' },
+      { ...getRouteLinkByPath(routePath.LOREM), title: 'Lorem Ipsum' },
+      {
+        ...getRouteLinkByPath(routePath.TODO),
+        title: 'ToDo with title changed',
+      },
     ],
   },
   {
@@ -130,10 +218,13 @@ export const routeLinks: RouteLink[] = [
     title: 'More',
     iconmap: IconMap.Folder,
     items: [
-      { ...getRouteByPath(routePath.TODO), title: 'ToDo with title changed' },
+      {
+        ...getRouteLinkByPath(routePath.TODO),
+        title: 'ToDo with title changed',
+      },
 
       {
-        ...getRouteByPath(routePath.COUNTER),
+        ...getRouteLinkByPath(routePath.COUNTER),
         title: 'Counter with title updated',
       },
     ],

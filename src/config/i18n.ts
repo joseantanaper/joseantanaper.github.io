@@ -7,7 +7,7 @@ import { translationEN } from './locales/en/translation'
 import { translationES } from './locales/es/translation'
 
 const detectionOptions = {
-  order: ['path'],
+  order: ['path', 'localStorage', 'navigator'],
   lookupFromPathIndex: 0,
   checkWhiteList: true,
 }
@@ -17,9 +17,9 @@ i18n
   .use(detector)
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: false,
     supportedLngs: ['es', 'en'],
-    fallbackLng: 'en',
+    fallbackLng: 'es',
     // fallbackLng: localStorage.getItem('locale') ?? 'es', // Avoid flicker if language is not default
     // lng: 'es',
     // lng: 'en',

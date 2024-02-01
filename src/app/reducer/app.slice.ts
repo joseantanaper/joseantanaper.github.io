@@ -83,29 +83,10 @@ installTheme(INITIAL_STATE.theme)
 console.log('app.slice.ts', 'Executed!')
 
 i18n.on('languageChanged', (newLang) => {
-  if (window.location.pathname === '/') {
-    console.log(
-      'app.slice',
-      'languageChanged',
-      'Redirect',
-      window.location.pathname
-    )
-    window.location.pathname = '/' + newLang
-  }
-  // console.log(window.location.pathname)
   // if (window.location.pathname === '/') {
-  //   console.log(
-  //     'app.slice',
-  //     'languageChanged',
-  //     'Redirect',
-  //     window.location.pathname
-  //   )
+  //   console.log('app.slice', 'languageChanged', 'Redirect')
   //   window.location.pathname = '/' + newLang
-  // } else {
-  //   console.log('app.slice', 'languageChanged', 'OK', window.location.pathname)
   // }
-  // window.location.pathname = '/' + newLang.substring(0, 2)
-  // console.log('languageChanged***', newLang.substring(0, 2))
 })
 
 const appSlice = createSlice({
@@ -127,6 +108,7 @@ const appSlice = createSlice({
     setLocale: (state, action: PayloadAction<Locale>) => {
       state.locale = action.payload
       localStorage.setItem(AppKey.LOCALE, String(state.locale))
+      document.documentElement.setAttribute('lang', action.payload)
       console.log('appSlice', 'setLocale', state.locale)
     },
     setClockMode: (state, action: PayloadAction<ClockMode>) => {

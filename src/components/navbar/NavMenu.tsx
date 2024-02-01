@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteLink } from '@config/routes/routes'
+import { RouteLink, routeLinkIsGroup } from '@config/routes/routes'
 import { NavLinko } from '@components/widgets/NavLinko'
 import { useTranslation } from 'react-i18next'
 
@@ -15,7 +15,7 @@ export const NavMenu = ({ routeLinks }: Props) => {
       <div className="d-flex">
         <ul className="navbar-nav">
           {routeLinks
-            .filter((routeLink) => routeLink.url.startsWith('/'))
+            .filter((routeLink) => !routeLinkIsGroup(routeLink.url))
             .map((routeLink: RouteLink, index: number) => {
               if (index < 3)
                 return (

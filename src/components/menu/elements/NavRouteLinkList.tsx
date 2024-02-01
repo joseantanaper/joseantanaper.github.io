@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { RouteLink } from '@/config/routes/routes'
+import { RouteLink, routeLinkIsGroup } from '@/config/routes/routes'
 import { NavLinko } from '@/components/widgets/NavLinko'
 import { Accordion } from './Accordion'
 import { Input } from '@/components/widgets/Input'
@@ -16,7 +16,7 @@ const renderRouteLink = (
   parentIndex: number,
   index: number
 ) => {
-  if (routeLink.url.startsWith('/')) {
+  if (!routeLinkIsGroup(routeLink.url)) {
     return (
       <NavLinko key={`menu-${parentIndex}-${index}`} routeLink={routeLink} />
     )
@@ -37,12 +37,13 @@ const renderRouteLink = (
           // If closing offcanvas when click is needed
           data-bs-dismiss="offcanvas"
         >
-          {subRouteLinks.map((routeLink: RouteLink, index: number) => (
-            <NavLinko
-              key={`menu-2nd-${parentIndex}-${index}`}
-              routeLink={routeLink}
-            />
-          ))}
+          {subRouteLinks &&
+            subRouteLinks.map((routeLink: RouteLink, index: number) => (
+              <NavLinko
+                key={`menu-2nd-${parentIndex}-${index}`}
+                routeLink={routeLink}
+              />
+            ))}
         </div>
       </Accordion>
     )
@@ -56,7 +57,9 @@ export const NavRouteLinkList = ({ routeLinks, parentIndex }: Props) => {
 
   const countLinks = () => {
     let counter: number = 0
-    counter += [...routeLinks].filter((link) => link.url.startsWith('/')).length
+    counter += [...routeLinks].filter((link) =>
+      routeLinkIsGroup(link.url)
+    ).length
     ;[...routeLinks].forEach((link) => {
       if (link.items) counter += link.items!.length
     })
@@ -132,7 +135,7 @@ export const NavRouteLinkList = ({ routeLinks, parentIndex }: Props) => {
         data-bs-dismiss="offcanvas"
       >
         {filteredRouteLinks
-          .filter((routeLink) => routeLink.url.startsWith('/'))
+          .filter((routeLink) => !routeLinkIsGroup(routeLink.url))
           .map((routeLink, index) => {
             return renderRouteLink(routeLink, parentIndex, index)
           })}
@@ -141,7 +144,7 @@ export const NavRouteLinkList = ({ routeLinks, parentIndex }: Props) => {
       <br />
 
       {filteredRouteLinks
-        .filter((routeLink) => !routeLink.url.startsWith('/'))
+        .filter((routeLink) => routeLink.url.startsWith('#'))
         .map((routeLink, index) => {
           return renderRouteLink(routeLink, parentIndex, index)
         })}
