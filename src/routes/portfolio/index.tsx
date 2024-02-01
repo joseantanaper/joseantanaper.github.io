@@ -8,6 +8,7 @@ import { Summary } from './Summary'
 import { ExperienceList } from './ExperienceList'
 import { AcademicList } from './AcademicList'
 import { Linko } from '@components/widgets/Linko'
+import NavbarMenuDivider from '@/components/widgets/NavbarMenuDivider'
 
 export const Portfolio = () => {
   const { t, i18n } = useTranslation()
@@ -58,7 +59,7 @@ export const Portfolio = () => {
           href="#hobbies"
         />
       </li>
-      <div className="vr"></div>
+      <NavbarMenuDivider />
       <li className="nav-item">
         <Linko iconmap={IconMap.Code} label={`${t('Footer')}`} href="#footer" />{' '}
       </li>

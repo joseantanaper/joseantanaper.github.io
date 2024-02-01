@@ -32,15 +32,15 @@ export const MiniCounter = () => {
   return (
     <div className="btn-group" role="group">
       <Button
-        className="btn btn-outline-secondary"
+        className="btn-outline-secondary"
         onClick={() => dispatch(decrement())}
-        label="-"
+        iconmap={IconMap.CircleMinus}
       />
       <label className="btn btn-outline-primary z-1">{count}</label>
       <Button
-        className="btn btn-outline-secondary"
+        className="btn-outline-success"
         onClick={() => dispatch(increment())}
-        label="+"
+        iconmap={IconMap.CirclePlus}
       />
     </div>
   )

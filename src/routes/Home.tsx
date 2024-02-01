@@ -7,6 +7,7 @@ import { Avataro } from '@/components/widgets/Avataro'
 import { useLoaderData } from 'react-router-dom'
 import { useEffect } from 'react'
 import Title from '@/components/widgets/Title'
+import NavbarMenuDivider from '@/components/widgets/NavbarMenuDivider'
 
 export interface LoaderData {
   iconmap?: IconMap
@@ -47,7 +48,9 @@ const Home = () => {
           href="#section4"
         />{' '}
       </li>
-      <div className="vr"></div>
+
+      <NavbarMenuDivider />
+
       <li className="nav-item">
         <Linko iconmap={IconMap.Code} label={`${t('Footer')}`} href="#footer" />{' '}
       </li>

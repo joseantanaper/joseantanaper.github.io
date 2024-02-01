@@ -1,10 +1,11 @@
 import React from 'react'
-import { PageLayout } from '@/components/layout/PageLayout'
-import Title from '@/components/widgets/Title'
+import { PageLayout } from '@components/layout/PageLayout'
+import Title from '@components/widgets/Title'
 import { useTranslation } from 'react-i18next'
-import { IconMap } from '@/components/widgets/Icon'
-import { Linko } from '@/components/widgets/Linko'
+import { IconMap } from '@components/widgets/Icon'
+import { Linko } from '@components/widgets/Linko'
 import YTVideo from './Iframe'
+import NavbarMenuDivider from '@components/widgets/NavbarMenuDivider'
 
 const Creation = () => {
   const { t } = useTranslation()
@@ -25,7 +26,7 @@ const Creation = () => {
           href="#creationRetrogaming"
         />
       </li>
-      <div className="vr"></div>
+      <NavbarMenuDivider />
       <li className="nav-item">
         <Linko iconmap={IconMap.Code} label={`${t('Footer')}`} href="#footer" />{' '}
       </li>

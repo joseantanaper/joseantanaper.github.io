@@ -1,10 +1,10 @@
-import Home from '@/routes/Home'
+import Home from '@routes/Home'
 import Portfolio from '@routes/portfolio/Index'
 import Creation from '@routes/creation/Index'
-import Counter from '@routes/miniapps/counter'
-import Todo from '@routes/miniapps/todo'
+import Counter from '@routes/miniapps/counter/Index'
+import Todo from '@routes/miniapps/todo/Index'
 import { IconMap } from '@components/widgets/Icon'
-import { Lorem } from '@routes/playground/lorem'
+import { Lorem } from '@routes/playground/lorem/Index'
 import { Navigate } from 'react-router-dom'
 
 export const enum routePath {

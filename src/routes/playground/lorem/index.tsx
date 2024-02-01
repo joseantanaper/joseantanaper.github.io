@@ -5,6 +5,7 @@ import { NavLinko } from '@/components/widgets/NavLinko'
 import { Linko } from '@/components/widgets/Linko'
 import { Icon, IconMap } from '@/components/widgets/Icon'
 import { useTranslation } from 'react-i18next'
+import NavbarMenuDivider from '@/components/widgets/NavbarMenuDivider'
 
 interface Chapter {
   id: number
@@ -39,6 +40,7 @@ export const Lorem = () => {
           />
         </li>
       ))}
+      <NavbarMenuDivider />
       <li className="nav-item">
         <Linko iconmap={IconMap.Code} label={`${t('Footer')}`} href="#footer" />{' '}
       </li>

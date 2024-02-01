@@ -66,16 +66,6 @@ input.form-control {
   }
 }
 
-.btn-group {
-
-  .btn+.btn {
-    // margin-right: -$input-btn-border-width !important;
-    // margin-left: 5px !important;
-    margin-left: -$btn-border-width !important;
-  }
-}
-
-
 /* OFFCANVAS -----------------------------------------------------------------*/
 .offcanvas-header {
   min-height: $app-navbar-height + 0.8px;

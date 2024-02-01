@@ -183,7 +183,7 @@ export const ButtonSplit = ({
           ) : null}
           {children ? children : null}
         </button>
-        {/* <div className="vr"></div> */}
+        {!className && <div className="vr" style={{ opacity: 0.06 }}></div>}
         <button
           type="button"
           className={

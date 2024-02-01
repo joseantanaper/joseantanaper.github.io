@@ -18,6 +18,8 @@ export const LocaleToggler = () => {
   // const [, /*locale*/ applyLocale] = useState(currentLocale)
   const { i18n } = useTranslation()
 
+  const buttonStyle = ''
+
   const handleClick = (locale?: Locale) => {
     if (!locale) {
       locale =
@@ -72,7 +74,7 @@ export const LocaleToggler = () => {
 
   return (
     <ButtonSplit
-      className={`btn-outline-secondary`}
+      className={buttonStyle}
       onClick={() => handleClick()}
       iconmap={IconMap.Locale}
       label={currentLocale && currentLocale!.substring(0, 2)}
