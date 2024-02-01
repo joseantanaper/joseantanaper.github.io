@@ -28,7 +28,22 @@
 .accordion-button,
 .form-control,
 .col-form-label,
-.dropdown-toggle-split {
+.dropdown-toggle-split:not(.btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-danger,
+  .btn-warning,
+  .btn-info,
+  .btn-light,
+  .btn-dark,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-outline-success,
+  .btn-outline-danger,
+  .btn-outline-warning,
+  .btn-outline-info,
+  .btn-outline-light,
+  .btn-outline-dark) {
   color: $app-icon-color;
 }
 
@@ -195,9 +210,10 @@
   }
 }
 
+
 .dropdown-toggle-split.show {
   // border-color: $secondary-text-emphasis;
-  border-color: rgba($gray-600, $app-default-opacity);
+  border-color: rgba(white, 0.4);
 }
 
 .dropdown-toggle-split:active:after {
@@ -365,10 +381,12 @@
   // }
 
   .btn {
+    margin-right: 0 !important;
     min-width: 2rem !important;
+    // background: orange;
   }
 
-  .btn:not(:first-child),
+  .btn:not(::first-child),
   .btn:not(.btn-primary,
     .btn-secondary,
     .btn-success,
@@ -377,6 +395,7 @@
     .btn-info,
     .btn-light,
     .btn-dark) {
+    background: yellow;
     margin-left: -$btn-border-width !important;
     margin-right: 0 !important;
 
@@ -389,19 +408,37 @@
     .btn-warning,
     .btn-info,
     .btn-light,
-    .btn-dark):not(:first-child) {
+    .btn-dark) {
+    margin-left: $btn-border-width !important;
+    margin-right: 0 !important;
+  }
+
+  .btn:first-child {
+    margin-left: 0 !important;
+  }
+
+  .dropdown-toggle-split {
+    // background: yellow;
+    min-width: 2rem;
+    max-width: 2rem;
+    width: 2rem;
+    padding: $app-button-y-padding $app-button-x-padding - ($app-button-x-padding*0.4);
+  }
+
+  :is(.btn-primary,
+    .btn-secondary,
+    .btn-success,
+    .btn-danger,
+    .btn-warning,
+    .btn-info,
+    .btn-light,
+    .btn-dark).dropdown-toggle-split {
     margin-left: $btn-border-width !important;
   }
-}
 
-.btn-group>.dropdown-toggle-split {
-  min-width: 2rem;
-  max-width: 2rem;
-  width: 2rem;
-  padding: $app-button-y-padding $app-button-x-padding - ($app-button-x-padding*0.4);
 }
 
 .btn:not(.navbar-toggler, .dropdown-toggle-split) {
   // background: orange;
-  min-width: 2rem;
+
 }

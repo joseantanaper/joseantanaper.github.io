@@ -2,8 +2,15 @@ import { useEffect, ReactNode } from 'react'
 import { Icon, IconMap } from '@components/widgets/Icon'
 import { Button, ButtonSplit } from '@components/widgets/Button'
 import { useAppSelector, useAppDispatch } from '@app/hooks'
-import { Theme, setTheme } from '@app/reducer/app.slice'
-import { RootState } from '@app/store'
+import {
+  Theme,
+  setTheme,
+  BtnTheme,
+  selectTheme,
+  selectBtnTheme,
+} from '@app/reducer/app.slice'
+import { Trans } from 'react-i18next'
+import { buttonStyle } from '@/util/styleTools'
 
 export const enum TogglerType {
   Button = 0,
@@ -27,11 +34,11 @@ export const ThemeToggler = ({
   togglerType = TogglerType.Button,
   label = Label.No,
 }: Props) => {
-  const buttonStyle = ''
   useEffect(() => {})
 
   const dispatch = useAppDispatch()
-  const { theme } = useAppSelector((state: RootState) => state.app)
+  const theme = useAppSelector(selectTheme)
+  const btntheme = useAppSelector(selectBtnTheme)
 
   const handleClick = (theme?: Theme) => {
     switch (theme) {
@@ -71,6 +78,11 @@ export const ThemeToggler = ({
 
   const dropdownMenu = (
     <>
+      <li>
+        <h6 className="bg-gradient dropdown-header">
+          <Trans>app:theme</Trans>
+        </h6>
+      </li>
       <li className="nav-item">
         <Button
           className={`dropdown-item ${
@@ -117,7 +129,13 @@ export const ThemeToggler = ({
     <>
       <div className="">
         <ButtonSplit
-          className={buttonStyle}
+          className={buttonStyle(
+            theme,
+            btntheme,
+            'primary',
+            'danger',
+            'primary'
+          )}
           onClick={() => handleClick()}
           iconmap={
             theme === Theme.Light

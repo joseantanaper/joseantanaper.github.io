@@ -4,9 +4,15 @@ interface Props {
   size?: string
   label?: string
   className?: string
+  imgClass?: string
 }
 
-export const Avataro = ({ size = '36', label, className }: Props) => {
+export const Avataro = ({
+  size = '36',
+  label,
+  className,
+  imgClass = 'rounded-circle app-circle app-profile',
+}: Props) => {
   return (
     <>
       <img
@@ -14,7 +20,7 @@ export const Avataro = ({ size = '36', label, className }: Props) => {
         alt="Avatar"
         width={size}
         height="auto"
-        className={`rounded-circle mx-auto app-profile ${className}`}
+        className={`${imgClass} mx-auto ${className}`}
       />
       {label ? <span className="app-legend d-block">{label}</span> : null}
     </>

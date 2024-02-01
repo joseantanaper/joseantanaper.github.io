@@ -9,6 +9,11 @@ export enum Theme {
   Auto = 'auto',
 }
 
+export enum BtnTheme {
+  Outline = 0,
+  Solid = 1,
+}
+
 export enum Locale {
   EN = 'en',
   ES = 'es',
@@ -22,6 +27,7 @@ export enum ClockMode {
 export enum AppKey {
   USERNAME = 'username',
   THEME = 'theme',
+  BTN_THEME = 'btntheme',
   LOCALE = 'locale',
   I18N = 'i18nextLng',
   CLOCK_MODE = 'clockmode',
@@ -30,6 +36,7 @@ export enum AppKey {
 export interface AppState {
   username: string
   theme: Theme
+  btntheme: BtnTheme
   locale: Locale
   clockmode: ClockMode
 }
@@ -37,6 +44,7 @@ export interface AppState {
 const INITIAL_STATE = {
   username: localStorage.getItem(AppKey.USERNAME) || '',
   theme: localStorage.getItem(AppKey.THEME) ?? Theme.Auto,
+  btntheme: localStorage.getItem(AppKey.BTN_THEME) ?? BtnTheme.Outline,
   locale:
     localStorage.getItem(AppKey.LOCALE) ||
     localStorage.getItem(AppKey.I18N) ||
@@ -76,11 +84,16 @@ const installTheme = (theme?: Theme) => {
   }
 }
 
-const installLanguage = () => {}
+export const installLocale = (locale: string) => {
+  if (locale) {
+    setLocale(locale as Locale)
+    document.documentElement.setAttribute('lang', locale as string)
+  }
+}
 
 installTheme(INITIAL_STATE.theme)
 
-console.log('app.slice.ts', 'Executed!')
+console.log('app.slice.ts', 'Executed')
 
 i18n.on('languageChanged', (newLang) => {
   // if (window.location.pathname === '/') {
@@ -105,6 +118,10 @@ const appSlice = createSlice({
       localStorage.setItem(AppKey.THEME, String(state.theme))
       installTheme(state.theme)
     },
+    setBtnTheme: (state, action: PayloadAction<BtnTheme>) => {
+      state.btntheme = action.payload ?? selectBtnTheme
+      localStorage.setItem(AppKey.BTN_THEME, String(state.btntheme))
+    },
     setLocale: (state, action: PayloadAction<Locale>) => {
       state.locale = action.payload
       localStorage.setItem(AppKey.LOCALE, String(state.locale))
@@ -119,12 +136,21 @@ const appSlice = createSlice({
   },
 })
 
-export const { setTheme, setLocale, setClockMode, setUsername, clearUsername } =
-  appSlice.actions
+export const {
+  setTheme,
+  setBtnTheme,
+  setLocale,
+  setClockMode,
+  setUsername,
+  clearUsername,
+} = appSlice.actions
 
-export const selectUsername = (state: RootState) => state.app.username
-export const selectTheme = (state: RootState) => state.app.theme
-export const selectLocale = (state: RootState) => state.app.locale
-export const selectClockMode = (state: RootState) => state.app.clockmode
+export const selectUsername = (state: RootState) => state.app.username as string
+export const selectTheme = (state: RootState) => state.app.theme as Theme
+export const selectBtnTheme = (state: RootState) =>
+  Number(state.app.btntheme) as BtnTheme
+export const selectLocale = (state: RootState) => state.app.locale as Locale
+export const selectClockMode = (state: RootState) =>
+  state.app.clockmode as ClockMode
 
 export default appSlice.reducer

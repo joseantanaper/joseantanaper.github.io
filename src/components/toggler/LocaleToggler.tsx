@@ -7,18 +7,26 @@ import { useNavigate, useLocation, useResolvedPath } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '@app/hooks'
 
 import { useTranslation } from 'react-i18next'
-import { Locale, setLocale, selectLocale } from '@app/reducer/app.slice'
+import {
+  Locale,
+  setLocale,
+  selectLocale,
+  selectTheme,
+  selectBtnTheme,
+} from '@app/reducer/app.slice'
+
+import { buttonStyle } from '@/util/styleTools'
 
 export const LocaleToggler = () => {
   const dispatch = useAppDispatch()
   const currentLocale = useAppSelector(selectLocale)
+  const currentTheme = useAppSelector(selectTheme)
+  const currentBtnTheme = useAppSelector(selectBtnTheme)
   const navigate = useNavigate()
   const location = useLocation()
   const resolvedPath = useResolvedPath(location)
   // const [, /*locale*/ applyLocale] = useState(currentLocale)
-  const { i18n } = useTranslation()
-
-  const buttonStyle = ''
+  const { t, i18n } = useTranslation()
 
   const handleClick = (locale?: Locale) => {
     if (!locale) {
@@ -45,6 +53,9 @@ export const LocaleToggler = () => {
 
   const dropdownMenu = (
     <>
+      <li>
+        <h6 className="bg-gradient dropdown-header">{t('app:language')}</h6>
+      </li>
       <li className="nav-item">
         <Button
           className={`dropdown-item ${
@@ -74,7 +85,13 @@ export const LocaleToggler = () => {
 
   return (
     <ButtonSplit
-      className={buttonStyle}
+      className={buttonStyle(
+        currentTheme,
+        currentBtnTheme,
+        'danger',
+        'primary',
+        'warning'
+      )}
       onClick={() => handleClick()}
       iconmap={IconMap.Locale}
       label={currentLocale && currentLocale!.substring(0, 2)}

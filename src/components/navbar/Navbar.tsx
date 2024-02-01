@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { ButtonToggler } from '@components/widgets/Button'
 import { ThemeToggler } from '@/components/toggler/ThemeToggler'
+import { BtnThemeToggler } from '@/components/toggler/BtnThemeToggler'
 import { MiniCounter } from '@components/toggler/MiniCounter'
 import { MenuEnd } from '@components/menu/MenuEnd'
 import { MenuTop } from '@components/menu/MenuTop'
@@ -13,6 +14,7 @@ import { NavTitle } from '@components/navbar/NavTitle'
 import { Avataro } from '@/components/widgets/Avataro'
 import { Icon, IconMap } from '@components/widgets/Icon'
 import { useAppSelector } from '@app/hooks'
+import { buttonStyle } from '@/util/styleTools'
 
 // import { routeLinks, RouteLink } from '@config/nav.config'
 import { routeLinks, RouteLink } from '@config/routes/routes'
@@ -24,6 +26,7 @@ import { t } from 'i18next'
 
 import {
   selectTheme,
+  selectBtnTheme,
   selectLocale,
   selectClockMode,
   selectUsername,
@@ -36,6 +39,7 @@ interface Props {
 
 export const Navbar = ({ title, subtitle }: Props) => {
   const currentTheme = useAppSelector(selectTheme)
+  const currentBtnTheme = useAppSelector(selectBtnTheme)
   const currentLocale = useAppSelector(selectLocale)
   const currentClockMode = useAppSelector(selectClockMode)
   const currentUsername = useAppSelector(selectUsername)
@@ -49,7 +53,7 @@ export const Navbar = ({ title, subtitle }: Props) => {
         {/* Navbar Begin */}
         <div className="app-navbar-container container-fluid flex-nowrap">
           <ButtonToggler targetId="offcanvasMenuNav" extraClass="p-0">
-            <Avataro />
+            <Avataro imgClass="rounded" />
           </ButtonToggler>
           {/* Title */}
           <NavTitle title={t(title)} subtitle={t(subtitle!)} type={0} />
@@ -63,13 +67,13 @@ export const Navbar = ({ title, subtitle }: Props) => {
           <div className={`d-none d-lg-block border-start ${dividerClass}`}>
             <LocaleToggler />
           </div>
-          {/* Mini Counter */}
 
+          {/* Mini Counter */}
           <div className={`d-none d-md-block ${dividerClass}`}>
             <MiniCounter />
           </div>
-          {/* Clock */}
 
+          {/* Clock */}
           <div className={`d-none d-sm-block ${dividerClass}`}>
             <Clock currentClockMode={currentClockMode} />
           </div>
@@ -78,17 +82,33 @@ export const Navbar = ({ title, subtitle }: Props) => {
           <div className={`${dividerClass}`}>
             <ThemeToggler currentTheme={currentTheme} />
           </div>
+          <div className={`${dividerClass}`}>
+            <BtnThemeToggler />
+          </div>
 
           <div className={`${dividerClass}`}>
             <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuTop"
-                className="btn-outline-secondary"
+                // className="btn-outline-secondary"
+                className={buttonStyle(
+                  currentTheme,
+                  currentBtnTheme,
+                  'warning',
+                  'primary',
+                  'danger'
+                )}
                 iconmap={IconMap.MenuTop}
               />
               <ButtonToggler
                 targetId="offcanvasMenuBottom"
-                className="btn-outline-secondary"
+                className={buttonStyle(
+                  currentTheme,
+                  currentBtnTheme,
+                  'warning',
+                  'primary',
+                  'danger'
+                )}
                 iconmap={IconMap.MenuBottom}
               />
             </div>

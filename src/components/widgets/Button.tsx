@@ -119,7 +119,7 @@ export const ButtonSplit = ({
   onClick,
   children,
   dropdown,
-  dropdownBreakdown,
+  dropdownBreakdown = 'md',
 }: Props) => {
   const handleClick = (name: string) => {
     if (onClick) {
@@ -161,41 +161,48 @@ export const ButtonSplit = ({
       })
     }
   }
+
+  const mainButton = (btnClass?: string) => (
+    <button
+      name={name}
+      className={buttonClass(className, btnClass)}
+      disabled={disabled}
+      onClick={() =>
+        onClick ? (async ? handleClick(name!) : onClick()) : null
+      }
+    >
+      {async && <div className="spinner-border spinner-border-sm d-none"></div>}
+      {iconmap ? <Icon id={iconmap} size={iconSize} /> : null}
+      {label ? (
+        <span className={`text-truncate ${labelClass}`}>
+          <Trans>{label}</Trans>
+        </span>
+      ) : null}
+      {children ? children : null}
+    </button>
+  )
+
+  const dropButton = () => (
+    <button
+      type="button"
+      className={
+        `dropdown-toggle dropdown-toggle-split ` +
+        buttonClass(className, extraClass) +
+        (dropdownBreakdown ? ` d-none d-${dropdownBreakdown}-block` : '')
+      }
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <span className="visually-hidden">Toggle Dropdown</span>
+    </button>
+  )
   return (
     <>
-      <div className="btn-group">
-        <button
-          name={name}
-          className={buttonClass(className, extraClass)}
-          disabled={disabled}
-          onClick={() =>
-            onClick ? (async ? handleClick(name!) : onClick()) : null
-          }
-        >
-          {async && (
-            <div className="spinner-border spinner-border-sm d-none"></div>
-          )}
-          {iconmap ? <Icon id={iconmap} size={iconSize} /> : null}
-          {label ? (
-            <span className={`text-truncate ${labelClass}`}>
-              <Trans>{label}</Trans>
-            </span>
-          ) : null}
-          {children ? children : null}
-        </button>
+      {mainButton(`d-${dropdownBreakdown}-none`)}
+      <div className={`btn-group text-nowrap`}>
+        {mainButton(`d-none d-${dropdownBreakdown}-block`)}
         {!className && <div className="vr" style={{ opacity: 0.06 }}></div>}
-        <button
-          type="button"
-          className={
-            `dropdown-toggle dropdown-toggle-split ` +
-            buttonClass(className, extraClass) +
-            (dropdownBreakdown ? ` d-none d-${dropdownBreakdown}-inline` : '')
-          }
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span className="visually-hidden">Toggle Dropdown</span>
-        </button>
+        {dropButton()}
         <ul role="menu" className="dropdown-menu shadow">
           {dropdown}
         </ul>

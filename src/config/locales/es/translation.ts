@@ -6,6 +6,9 @@ export const translationES = {
     no: 'No',
     confirm: 'Confirm',
     more: 'Más',
+    language: 'Idioma',
+    theme: 'Tema',
+    btntheme: 'Tema Botones',
     home: {
       title: 'Inicio',
       subtitle: 'Raíz de este Sitio Web',

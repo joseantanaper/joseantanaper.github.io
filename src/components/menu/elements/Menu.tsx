@@ -1,6 +1,9 @@
 import { ReactNode, useEffect } from 'react'
 import { Icon, IconMap } from '@components/widgets/Icon'
 import { Button, ButtonDismiss } from '@/components/widgets/Button'
+import { useAppSelector, useAppDispatch } from '@app/hooks'
+import { selectTheme, selectBtnTheme } from '@app/reducer/app.slice'
+import { buttonStyle } from '@/util/styleTools'
 export const enum MenuPosition {
   Start = 'offcanvas-start border-end',
   Top = 'offcanvas-top border-bottom',
@@ -21,11 +24,13 @@ export interface MenuProps {
 }
 
 export const Menu = ({ id, title, position, children }: Props) => {
+  const currentTheme = useAppSelector(selectTheme)
+  const currentBtnTheme = useAppSelector(selectBtnTheme)
+  let icon: IconMap = IconMap.None
+
   useEffect(() => {
     console.log('Menu')
   }, [])
-
-  let icon: IconMap = IconMap.None
 
   switch (position) {
     case MenuPosition.Top:
@@ -53,7 +58,13 @@ export const Menu = ({ id, title, position, children }: Props) => {
         {position === MenuPosition.Start ? (
           <>
             <ButtonDismiss
-              className="navbar-toggler btn-outline-secondary"
+              className={`navbar-toggler ${buttonStyle(
+                currentTheme,
+                currentBtnTheme,
+                'warning',
+                'primary',
+                'secondary'
+              )}`}
               iconmap={IconMap.MenuStartClose}
               dismiss="offcanvas"
             />
@@ -67,7 +78,13 @@ export const Menu = ({ id, title, position, children }: Props) => {
               {title!}
             </h4>
             <ButtonDismiss
-              className="navbar-toggler btn-outline-secondary"
+              className={`navbar-toggler ${buttonStyle(
+                currentTheme,
+                currentBtnTheme,
+                'warning',
+                'primary',
+                'secondary'
+              )}`}
               iconmap={icon}
               dismiss="offcanvas"
             />

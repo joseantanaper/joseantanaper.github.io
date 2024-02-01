@@ -6,12 +6,13 @@ import { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import {
   Locale,
-  setLocale,
   selectLocale,
   Theme,
   setTheme,
   selectTheme,
+  installLocale,
 } from '@/app/reducer/app.slice'
+import { RootState } from '@app/store'
 import { useTranslation } from 'react-i18next'
 
 import { appConfig } from '@config/app.config'
@@ -20,7 +21,10 @@ import { Suspense } from 'react'
 import { useLocation, useNavigation, useParams } from 'react-router-dom'
 
 const Root = () => {
-  const currentLocale = useAppSelector(selectLocale)
+  const { locale: currentLocale } = useAppSelector(
+    (state: RootState) => state.app
+  )
+  // const currentLocale = useAppSelector(selectLocale)
   const currentTheme = useAppSelector(selectTheme)
   const dispatch = useAppDispatch()
   const { i18n } = useTranslation()
@@ -30,9 +34,7 @@ const Root = () => {
 
   useEffect(() => {
     // Defaults
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>', i18n.resolvedLanguage)
-
-    dispatch(setLocale(i18n.resolvedLanguage as Locale))
+    installLocale(i18n.resolvedLanguage!)
 
     // Check if locale stored. Setting defaults
     // if (!currentLocale) {
@@ -46,10 +48,8 @@ const Root = () => {
     // Sync locale with i18n
     // if (i18n.language !== currentLocale) i18n.changeLanguage(currentLocale)
     // Setting HTML lang
-    document.documentElement.setAttribute('lang', currentLocale)
 
     // Theme
-
     // switch (currentTheme) {
     //   case Theme.Light:
     //     document.documentElement.setAttribute('data-bs-theme', Theme.Light)

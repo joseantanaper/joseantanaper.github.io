@@ -30,6 +30,7 @@ $list-group-active-bg: var(--bs-secondary-bg);
 $list-group-active-color: var(--bs-text-body);
 $list-group-border-color: rgba(var(--bs-secondary-bg-rgb), 0.4);
 
+$dropdown-header-padding-y: 1rem;
 // It seems that default value is incongruent, as we can see in btn-group overlaps
 $border-width: 0.06rem;
 $vr-border-width: calc($border-width / 2);

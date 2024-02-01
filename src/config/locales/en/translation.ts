@@ -7,6 +7,9 @@ export const translationEN = {
     confirm: 'Confirm',
     more: 'More',
     site: 'Site',
+    language: 'Language',
+    theme: 'Theme',
+    btntheme: 'Button Theme',
     home: {
       title: 'Start',
       subtitle: 'Root of this Web Site',

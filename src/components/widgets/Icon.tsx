@@ -11,9 +11,14 @@ export const enum IconMap {
   None = '',
   Portfolio = 'bi-linkedin',
   Home = 'bi-house',
+
   ThemeLight = 'bi-sun',
   ThemeDark = 'bi-moon',
   ThemeAuto = 'bi-circle-half',
+
+  BtnThemeOutline = 'bi-exclamation-square',
+  BtnThemeSolid = 'bi-exclamation-square-fill',
+
   MenuTop = 'bi-arrow-bar-down',
   MenuBottom = 'bi-arrow-bar-up',
   MenuStart = 'bi-layout-sidebar-inset',
@@ -492,6 +497,22 @@ export const Icon = ({
         return (
           <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
         )
+
+      case 'bi-exclamation-square':
+        return (
+          <>
+            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+          </>
+        )
+
+      case 'bi-exclamation-square-fill':
+        return (
+          <>
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+          </>
+        )
+
       case 'bi-wallet-fill':
         return (
           <>
