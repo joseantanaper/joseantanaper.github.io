@@ -39,6 +39,7 @@ export const Button = ({
   extraClass = '',
   disabled = false,
   iconmap,
+  iconClass,
   iconSize,
   label,
   labelClass,
@@ -96,7 +97,7 @@ export const Button = ({
       }
     >
       {async && <div className="spinner-border spinner-border-sm d-none"></div>}
-      {iconmap ? <Icon id={iconmap} size={iconSize} /> : null}
+      {iconmap ? <Icon extra={iconClass} id={iconmap} size={iconSize} /> : null}
       {label ? (
         <span className={`text-truncate${labelClass ? ' ' + labelClass : ''}`}>
           <Trans>{label}</Trans>
@@ -253,7 +254,8 @@ export const ButtonSplitPlus = ({
         {dropButton()}
         <ul
           role="menu"
-          className="dropdown-menu dropdown-menu-end float-end shadow"
+          style={{ width: '100%' }}
+          className={'dropdown-menu dropdown-menu-end'}
         >
           {dropdown}
         </ul>
@@ -287,7 +289,7 @@ export const ButtonDismiss = ({
 }
 
 export const ButtonToggler = ({
-  className = 'navbar-toggler btn-outline-secondary',
+  className = 'navbar-toggler',
   extraClass = '',
   iconmap,
   iconSize,
@@ -299,7 +301,7 @@ export const ButtonToggler = ({
 }: Props) => {
   return (
     <button
-      className={buttonClass(className, extraClass)}
+      className={`${buttonClass(className, extraClass)}`}
       type="button"
       data-bs-toggle={toggle}
       data-bs-target={`#${targetId}`}

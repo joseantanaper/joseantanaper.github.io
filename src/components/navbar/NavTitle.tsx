@@ -21,7 +21,7 @@ export const NavTitle = ({ title, subtitle, iconmap, type = 0 }: Props) => {
     //   } w-100 text-truncate text-nowrap`}
     //   to="/"
     // >
-    <NavLink className="navbar-brand w-100" to="/">
+    <NavLink className="navbar-brand w-100" to=".">
       <div
         className={`text-nowrap overflow-hidden text-truncate ${
           type === 1 ? 'app-show-on-scroll hide fade ps-3' : ''

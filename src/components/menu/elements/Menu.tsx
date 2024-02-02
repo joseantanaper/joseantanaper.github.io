@@ -28,6 +28,8 @@ export const Menu = ({ id, title, position, children }: Props) => {
   const currentBtnTheme = useAppSelector(selectBtnTheme)
   let icon: IconMap = IconMap.None
 
+  const buttonClass = 'danger'
+
   useEffect(() => {
     console.log('Menu')
   }, [])
@@ -58,12 +60,10 @@ export const Menu = ({ id, title, position, children }: Props) => {
         {position === MenuPosition.Start ? (
           <>
             <ButtonDismiss
-              className={`navbar-toggler ${buttonStyle(
+              className={`navbar-toggler-dismiss ${buttonStyle(
                 currentTheme,
                 currentBtnTheme,
-                'warning',
-                'primary',
-                'secondary'
+                buttonClass
               )}`}
               iconmap={IconMap.MenuStartClose}
               dismiss="offcanvas"
@@ -78,12 +78,10 @@ export const Menu = ({ id, title, position, children }: Props) => {
               {title!}
             </h4>
             <ButtonDismiss
-              className={`navbar-toggler ${buttonStyle(
+              className={`navbar-toggler-dismiss ${buttonStyle(
                 currentTheme,
                 currentBtnTheme,
-                'warning',
-                'primary',
-                'secondary'
+                buttonClass
               )}`}
               iconmap={icon}
               dismiss="offcanvas"

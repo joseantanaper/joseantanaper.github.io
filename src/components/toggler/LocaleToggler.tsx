@@ -62,9 +62,8 @@ export const LocaleToggler = () => {
             currentLocale === Locale.ES ? 'disabled active' : ''
           }`}
           iconmap={IconMap.Locale}
-          iconClass="app-rotate"
           onClick={() => handleClick(Locale.ES)}
-          label={Locale.ES}
+          label="app:es"
           labelClass="text-capitalize"
         ></Button>
       </li>
@@ -74,9 +73,8 @@ export const LocaleToggler = () => {
             currentLocale === Locale.EN ? 'disabled active' : ''
           }`}
           iconmap={IconMap.Locale}
-          iconClass="app-rotate"
           onClick={() => handleClick(Locale.EN)}
-          label={Locale.EN}
+          label="app:en"
           labelClass="text-capitalize"
         ></Button>
       </li>

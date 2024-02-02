@@ -51,8 +51,8 @@ export const Clock = ({ currentClockMode }: Props) => {
   return (
     <>
       <Button name="app-clock" extraClass="" onClick={handleClick}>
-        <Icon iconmap={IconMap.Clock} extra="app-rotate" />
-        <span className="">
+        <Icon iconmap={IconMap.Clock} extra="app-rotate opacity-25" />
+        <span className="ms-2 fw-bold">
           <span>{time.substring(0, time.indexOf(':'))}</span>
           <span className="opacity-50">:</span>
           <span>

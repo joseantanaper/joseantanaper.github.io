@@ -9,6 +9,10 @@ export const translationES = {
     language: 'Idioma',
     theme: 'Tema',
     btntheme: 'Tema Botones',
+
+    es: 'Español (ES)',
+    en: 'Inglés (US)',
+
     home: {
       title: 'Inicio',
       subtitle: 'Raíz de este Sitio Web',

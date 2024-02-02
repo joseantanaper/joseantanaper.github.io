@@ -10,6 +10,10 @@ export const translationEN = {
     language: 'Language',
     theme: 'Theme',
     btntheme: 'Button Theme',
+
+    es: 'Spanish (ES)',
+    en: 'English (US)',
+
     home: {
       title: 'Start',
       subtitle: 'Root of this Web Site',

@@ -85,6 +85,10 @@ const Root = () => {
 
   const theme = document.documentElement.getAttribute('data-bs-theme')
 
+  const loading = () => {
+    alert('loading')
+  }
+
   return (
     <Suspense fallback="loading">
       {/* <div className="app-root"> */}

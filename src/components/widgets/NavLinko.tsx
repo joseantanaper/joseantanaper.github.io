@@ -22,7 +22,7 @@ export const NavLinko = ({ routeLink, external, mode = 'menu' }: Props) => {
       // className={`list-group-item text-nowrap text-truncate list-group-item-action ${className}`}
       className={({ isActive, isPending }) =>
         (isPending ? 'pending' : isActive ? 'active' : '') +
-        ` text-nowrap text-truncate ${className}`
+        `  rounded text-nowrap text-truncate ${className}`
       }
       target={external ? '_blank' : ''}
       aria-current="page"

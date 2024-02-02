@@ -47,7 +47,11 @@ export const MiniCounter = () => {
           'warning',
           'primary'
         )}`}
-        style={{ minWidth: '3rem', width: '3rem' }}
+        style={{
+          margin: '10px',
+          minWidth: '3rem',
+          width: '3rem',
+        }}
       >
         {count}
       </label>

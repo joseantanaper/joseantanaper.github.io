@@ -311,8 +311,7 @@ svg+span {
 
 }
 
-.dropdown-toggle-split:active:after,
-.dropdown-toggle-split.active:after {
+.dropdown-toggle-split:active:after {
   opacity: $app-active-click-opacity;
 }
 
@@ -346,12 +345,31 @@ svg+span {
   max-height: $app-navbar-height - 8px;
   border-width: $border-width * 2;
   border-color: $secondary;
-  padding: 0.7rem;
+  padding: 14px;
+  background: transparent;
 
   svg {
     transition: $app-global-quick-transition;
     width: 100% !important;
     height: 100% !important;
+  }
+}
+
+.navbar-toggler-dismiss {
+  min-width: $app-navbar-toggler-width;
+  width: $app-navbar-toggler-width;
+  max-width: $app-navbar-toggler-width;
+  min-height: $app-navbar-height - 8px;
+  height: $app-navbar-height - 8px;
+  padding: 10px;
+  border-width: $border-width * 2 !important;
+  vertical-align: middle;
+
+  svg {
+    transition: $app-global-quick-transition;
+    width: 100% !important;
+    height: 100% !important;
+    font-weight: 900;
   }
 }
 

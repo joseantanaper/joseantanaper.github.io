@@ -17,7 +17,7 @@ const YTVideo = ({ title, url, aspectRatio }: Props) => {
         allowTransparency={true}
         allowFullScreen={true}
         title={title}
-        className="w-100 shadow rounded"
+        className="w-100 shadow rounded bg-black"
         src={url + options}
       />
       <span className="float-end mx-3">{title}</span>

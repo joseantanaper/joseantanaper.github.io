@@ -163,7 +163,6 @@ export const ThemeToggler = ({
             currentBtnTheme === BtnTheme.Outline ? 'disabled active' : ''
           }`}
           iconmap={IconMap.BtnThemeOutline}
-          iconClass="app-rotate"
           onClick={() => handleBtnThemeClick(BtnTheme.Outline)}
           label="Outline"
           labelClass="text-capitalize"
@@ -175,7 +174,6 @@ export const ThemeToggler = ({
             currentBtnTheme === BtnTheme.Solid ? 'disabled active' : ''
           }`}
           iconmap={IconMap.BtnThemeSolid}
-          iconClass="app-rotate"
           onClick={() => handleBtnThemeClick(BtnTheme.Solid)}
           label="Solid"
           labelClass="text-capitalize"
@@ -201,6 +199,7 @@ export const ThemeToggler = ({
                 ? IconMap.ThemeDark
                 : IconMap.ThemeAuto
             }
+            iconClass="app-rotate"
             label={theme}
             labelClass="text-capitalize d-none d-md-inline"
             onClick={() => handleClick()}
@@ -219,28 +218,6 @@ export const ThemeToggler = ({
             // dropdownBreakdown="sm"
           />
         </ButtonSplitPlus>
-        {/* 
-        <ButtonSplit
-          className={buttonStyle(
-            theme,
-            btntheme,
-            'primary',
-            'danger',
-            'primary'
-          )}
-          onClick={() => handleClick()}
-          iconmap={
-            theme === Theme.Light
-              ? IconMap.ThemeLight
-              : theme === Theme.Dark
-              ? IconMap.ThemeDark
-              : IconMap.ThemeAuto
-          }
-          label={theme}
-          labelClass="text-capitalize d-none d-md-inline"
-          dropdown={dropdownMenu}
-          dropdownBreakdown="sm"
-        ></ButtonSplit> */}
       </div>
     </>
   )

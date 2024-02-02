@@ -68,9 +68,9 @@ export const Navbar = ({ title, subtitle }: Props) => {
           </div>
 
           {/* Mini Counter */}
-          {/* <div className={`d-none d-md-block ${dividerClass}`}>
+          <div className={`d-none d-md-block ${dividerClass}`}>
             <MiniCounter />
-          </div> */}
+          </div>
 
           {/* Clock */}
           <div className={`d-none d-sm-block ${dividerClass}`}>
@@ -81,21 +81,15 @@ export const Navbar = ({ title, subtitle }: Props) => {
           <div className={`${dividerClass}`}>
             <ThemeToggler currentTheme={currentTheme} />
           </div>
-          {/* <div className={`${dividerClass}`}>
-            <BtnThemeToggler />
-          </div> */}
 
-          {/* <div className={`${dividerClass}`}>
+          <div className={`${dividerClass}`}>
             <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuTop"
-                // className="btn-outline-secondary"
                 className={buttonStyle(
                   currentTheme,
                   currentBtnTheme,
-                  'warning',
-                  'primary',
-                  'danger'
+                  'secondary'
                 )}
                 iconmap={IconMap.MenuTop}
               />
@@ -104,14 +98,12 @@ export const Navbar = ({ title, subtitle }: Props) => {
                 className={buttonStyle(
                   currentTheme,
                   currentBtnTheme,
-                  'warning',
-                  'primary',
-                  'danger'
+                  'secondary'
                 )}
                 iconmap={IconMap.MenuBottom}
               />
             </div>
-          </div> */}
+          </div>
 
           {/* {divider('d-inline d-sm-none')} */}
           <div className={`${dividerClass} float-end`}>
