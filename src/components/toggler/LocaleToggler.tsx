@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Icon, IconMap } from '@/components/widgets/Icon'
-import { Button, ButtonSplit } from '@components/widgets/Button'
+import { Button, ButtonSplitPlus } from '@components/widgets/Button'
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation, useResolvedPath } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '@app/hooks'
@@ -84,7 +84,7 @@ export const LocaleToggler = () => {
   )
 
   return (
-    <ButtonSplit
+    <ButtonSplitPlus
       className={buttonStyle(
         currentTheme,
         currentBtnTheme,
@@ -92,11 +92,25 @@ export const LocaleToggler = () => {
         'primary',
         'warning'
       )}
-      onClick={() => handleClick()}
+      onClick={handleClick}
       iconmap={IconMap.Locale}
       label={currentLocale && currentLocale!.substring(0, 2)}
       labelClass="text-uppercase"
       dropdown={dropdownMenu}
-    ></ButtonSplit>
+    >
+      <Button
+        className={buttonStyle(
+          currentTheme,
+          currentBtnTheme,
+          'danger',
+          'primary',
+          'warning'
+        )}
+        onClick={() => handleClick()}
+        iconmap={IconMap.Locale}
+        label={currentLocale}
+        labelClass="text-uppercase"
+      />
+    </ButtonSplitPlus>
   )
 }

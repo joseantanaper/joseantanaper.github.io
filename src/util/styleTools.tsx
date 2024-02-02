@@ -4,9 +4,10 @@ export const buttonStyle = (
   currentTheme: Theme,
   currentBtnTheme: BtnTheme,
   light: string,
-  dark: string,
-  auto: string
+  dark?: string,
+  auto?: string
 ) => {
+  // if (!light) return 'btn-secondary'
   switch (currentTheme) {
     case Theme.Light:
       return currentBtnTheme === BtnTheme.Outline
@@ -14,12 +15,12 @@ export const buttonStyle = (
         : `btn-${light}`
     case Theme.Dark:
       return currentBtnTheme === BtnTheme.Outline
-        ? `btn-outline-${dark}`
-        : `btn-${dark}`
+        ? `btn-outline-${dark ?? light}`
+        : `btn-${dark ?? light}`
     case Theme.Auto:
       return currentBtnTheme === BtnTheme.Outline
-        ? `btn-outline-${auto}`
-        : `btn-${auto}`
+        ? `btn-outline-${auto ?? dark ?? light}`
+        : `btn-${auto ?? dark ?? light}`
     default:
       return currentBtnTheme === BtnTheme.Outline
         ? 'btn-outline-secondary'

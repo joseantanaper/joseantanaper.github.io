@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { ButtonToggler } from '@components/widgets/Button'
 import { ThemeToggler } from '@/components/toggler/ThemeToggler'
-import { BtnThemeToggler } from '@/components/toggler/BtnThemeToggler'
 import { MiniCounter } from '@components/toggler/MiniCounter'
 import { MenuEnd } from '@components/menu/MenuEnd'
 import { MenuTop } from '@components/menu/MenuTop'
@@ -69,9 +68,9 @@ export const Navbar = ({ title, subtitle }: Props) => {
           </div>
 
           {/* Mini Counter */}
-          <div className={`d-none d-md-block ${dividerClass}`}>
+          {/* <div className={`d-none d-md-block ${dividerClass}`}>
             <MiniCounter />
-          </div>
+          </div> */}
 
           {/* Clock */}
           <div className={`d-none d-sm-block ${dividerClass}`}>
@@ -82,11 +81,11 @@ export const Navbar = ({ title, subtitle }: Props) => {
           <div className={`${dividerClass}`}>
             <ThemeToggler currentTheme={currentTheme} />
           </div>
-          <div className={`${dividerClass}`}>
+          {/* <div className={`${dividerClass}`}>
             <BtnThemeToggler />
-          </div>
+          </div> */}
 
-          <div className={`${dividerClass}`}>
+          {/* <div className={`${dividerClass}`}>
             <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuTop"
@@ -112,10 +111,10 @@ export const Navbar = ({ title, subtitle }: Props) => {
                 iconmap={IconMap.MenuBottom}
               />
             </div>
-          </div>
+          </div> */}
 
           {/* {divider('d-inline d-sm-none')} */}
-          <div className={`${dividerClass}`}>
+          <div className={`${dividerClass} float-end`}>
             <div className={`btn-group`}>
               <ButtonToggler
                 targetId="offcanvasMenuSettings"

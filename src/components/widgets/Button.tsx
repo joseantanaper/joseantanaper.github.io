@@ -6,6 +6,7 @@ interface Props {
   name?: string
   className?: string
   extraClass?: string
+  style?: object
   disabled?: boolean
   iconmap?: IconMap
   iconSize?: number
@@ -163,23 +164,27 @@ export const ButtonSplit = ({
   }
 
   const mainButton = (btnClass?: string) => (
-    <button
-      name={name}
-      className={buttonClass(className, btnClass)}
-      disabled={disabled}
-      onClick={() =>
-        onClick ? (async ? handleClick(name!) : onClick()) : null
-      }
-    >
-      {async && <div className="spinner-border spinner-border-sm d-none"></div>}
-      {iconmap ? <Icon id={iconmap} size={iconSize} /> : null}
-      {label ? (
-        <span className={`text-truncate ${labelClass}`}>
-          <Trans>{label}</Trans>
-        </span>
-      ) : null}
+    <>
+      <button
+        name={name}
+        className={buttonClass(className, btnClass)}
+        disabled={disabled}
+        onClick={() =>
+          onClick ? (async ? handleClick(name!) : onClick()) : null
+        }
+      >
+        {async && (
+          <div className="spinner-border spinner-border-sm d-none"></div>
+        )}
+        {iconmap ? <Icon id={iconmap} size={iconSize} /> : null}
+        {label ? (
+          <span className={`text-truncate ${labelClass}`}>
+            <Trans>{label}</Trans>
+          </span>
+        ) : null}
+      </button>{' '}
       {children ? children : null}
-    </button>
+    </>
   )
 
   const dropButton = () => (
@@ -204,6 +209,52 @@ export const ButtonSplit = ({
         {!className && <div className="vr" style={{ opacity: 0.06 }}></div>}
         {dropButton()}
         <ul role="menu" className="dropdown-menu shadow">
+          {dropdown}
+        </ul>
+      </div>
+    </>
+  )
+}
+
+export const ButtonSplitPlus = ({
+  name,
+  className = 'btn',
+  extraClass = '',
+  disabled = false,
+  style,
+  children,
+  dropdown,
+  dropdownBreakdown = 'md',
+}: Props) => {
+  const dropButton = () => (
+    <>
+      <button
+        type="button"
+        className={
+          `btn dropdown-toggle dropdown-toggle-split ` +
+          buttonClass(className, extraClass) +
+          (dropdownBreakdown ? ` d-none d-${dropdownBreakdown}-block` : '')
+        }
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <span className="visually-hidden">Toggle Dropdown</span>
+      </button>
+    </>
+  )
+
+  return (
+    <>
+      <div className="btn-group" style={style}>
+        {children}
+        {!className.includes('btn') && (
+          <div className="vr" style={{ opacity: 0.06 }}></div>
+        )}
+        {dropButton()}
+        <ul
+          role="menu"
+          className="dropdown-menu dropdown-menu-end float-end shadow"
+        >
           {dropdown}
         </ul>
       </div>

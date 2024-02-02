@@ -25,14 +25,21 @@ $accordion-button-active-color: var(--bs-emphasis-color);
 $accordion-button-active-bg: var(--bs-body-bg);
 $accordion-body-padding-y: 0.6rem;
 $accordion-body-padding-x: 0;
-$list-group-item-padding-y: 0.6rem;
+// $list-group-item-padding-y: 2rem;
 $list-group-active-bg: var(--bs-secondary-bg);
 $list-group-active-color: var(--bs-text-body);
 $list-group-border-color: rgba(var(--bs-secondary-bg-rgb), 0.4);
 
-$dropdown-header-padding-y: 1rem;
+$dropdown-min-width: 12rem;
+$dropdown-padding-x: 0.6rem;
+$dropdown-padding-y: $dropdown-padding-x;
+
+// $dropdown-item-padding-y: 
+
+
+// $dropdown-header-padding-y: 1rem;
 // It seems that default value is incongruent, as we can see in btn-group overlaps
-$border-width: 0.06rem;
+$border-width: 1px;
 $vr-border-width: calc($border-width / 2);
 $btn-border-width: $border-width;
 $input-border-width: $border-width;

@@ -81,15 +81,36 @@
 .list-group-item,
 .form-control,
 .col-form-label {
-
-  padding: $app-button-y-padding $app-button-x-padding;
-
   svg+span {
     margin-left: ($app-icon-text-margin);
   }
-
 }
 
+.btn,
+.dropdown-item,
+.navbar-toggler,
+.nav-link,
+.form-control,
+.col-form-label {
+  padding: $app-button-y-padding $app-button-x-padding;
+}
+
+.list-group-item {
+  padding: $app-button-y-padding*2 $app-button-x-padding;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  svg+span {
+    margin-left: ($app-icon-text-margin) * 2;
+  }
+}
+
+svg+span {
+  margin-left: ($app-icon-text-margin);
+}
 
 // .dropdown-toggle-split:not(:hover, :active):after {
 //   opacity: $app-icon-opacity;
@@ -334,111 +355,76 @@
   }
 }
 
-
-// .btn:not(.btn-primary,
-//   .btn-secondary,
-//   .btn-success,
-//   .btn-danger,
-//   .btn-warning,
-//   .btn-info,
-//   .btn-light,
-//   .btn-dark,
-//   .btn-outline-primary,
-//   .btn-outline-secondary,
-//   .btn-outline-success,
-//   .btn-outline-danger,
-//   .btn-outline-warning,
-//   .btn-outline-info,
-//   .btn-outline-light,
-//   .btn-outline-dark).active,
-// .nav-link.active,
-// .accordion-button.active,
-// .list-group-item.active,
-// .navbar-toggler.active {
-
-//   background: var(--bs-secondary-bg);
-
-//   svg {
-//     opacity: $app-icon-opacity-active;
-//   }
-
-//   span {
-//     opacity: $app-active-opacity;
-//   }
-// }
-
-// .dropdown-toggle-split.active:after {
-//   opacity: $app-active-click-opacity;
-//   // transition: $app-global-quick-transition;
-//   // color: $app-icon-color;
-// }
-
-
 .btn-group {
 
-  // .btn:not(:first-child) {
-  //   margin-left: -$btn-border-width !important;
-  // }
+  // margin: 0px !important;
+  // padding: 0px !important;
 
-  .btn {
-    margin-right: 0 !important;
-    min-width: 2rem !important;
-    // background: orange;
-  }
 
-  .btn:not(::first-child),
-  .btn:not(.btn-primary,
-    .btn-secondary,
-    .btn-success,
-    .btn-danger,
-    .btn-warning,
-    .btn-info,
-    .btn-light,
-    .btn-dark) {
-    background: yellow;
-    margin-left: -$btn-border-width !important;
-    margin-right: 0 !important;
-
-  }
-
-  :is(.btn-primary,
-    .btn-secondary,
-    .btn-success,
-    .btn-danger,
-    .btn-warning,
-    .btn-info,
-    .btn-light,
-    .btn-dark) {
-    margin-left: $btn-border-width !important;
-    margin-right: 0 !important;
-  }
-
-  .btn:first-child {
-    margin-left: 0 !important;
-  }
 
   .dropdown-toggle-split {
-    // background: yellow;
-    min-width: 2rem;
-    max-width: 2rem;
-    width: 2rem;
+    min-width: 2rem !important;
+    max-width: 2rem !important;
+    width: 2rem !important;
     padding: $app-button-y-padding $app-button-x-padding - ($app-button-x-padding*0.4);
   }
 
-  :is(.btn-primary,
+  .btn,
+  .dropdown-toggle-split {
+    margin: 0px !important;
+  }
+
+  .btn+.btn:is(.btn-primary,
     .btn-secondary,
     .btn-success,
     .btn-danger,
     .btn-warning,
     .btn-info,
     .btn-light,
-    .btn-dark).dropdown-toggle-split {
-    margin-left: $btn-border-width !important;
+    .btn-dark) {
+    // margin-left: 1px !important;
+    border-left-color: rgba(var(--bs-secondary-bg-rgb), 1);
+    z-index: 1;
+    /* Avoid inconsistent border left */
   }
 
-}
+  .btn+.btn:is(.btn-outline-primary,
+    .btn-outline-secondary,
+    .btn-outline-success,
+    .btn-outline-danger,
+    .btn-outline-warning,
+    .btn-outline-info,
+    .btn-outline-light,
+    .btn-outline-dark) {
+    // margin-left: 1px !important;
+    border-left-color: transparent;
+    z-index: 1;
+    /* Avoid inconsistent border left */
+  }
 
-.btn:not(.navbar-toggler, .dropdown-toggle-split) {
-  // background: orange;
+
+  // .btn+.btn:is(.btn-primary,
+  //   .btn-secondary,
+  //   .btn-success,
+  //   .btn-danger,
+  //   .btn-warning,
+  //   .btn-info,
+  //   .btn-light,
+  //   .btn-dark):not(:first-child, .btn.dropdown-toggle-split) {
+  //   // background: cyan;
+  //   margin-left: $btn-border-width !important;
+  //   // border-left: 1px solid;
+  // }
+
+  // .btn:is(.btn-primary,
+  //   .btn-secondary,
+  //   .btn-success,
+  //   .btn-danger,
+  //   .btn-warning,
+  //   .btn-info,
+  //   .btn-light,
+  //   .btn-dark).dropdown-toggle-split {
+  //   margin-left: $btn-border-width/2 !important;
+  // }
 
 }

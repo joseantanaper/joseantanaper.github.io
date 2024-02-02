@@ -423,3 +423,37 @@ ul.app-custom-list {
     margin-top: 10px;
   }
 }
+
+
+// SIZES
+:is(.app-w-sm,
+  .app-w-md,
+  .app-w-lg) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:is(.app-w-sm,
+  .app-w-md,
+  .app-w-lg):hover {
+  overflow: clip !important;
+}
+
+@include media-breakpoint-up(sm) {
+  .app-w-sm {
+    min-width: $app-w-sm;
+    width: $app-w-sm;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .app-w-md {
+    min-width: $app-w-md;
+    width: $app-w-md;
+  }
+
+  .app-w-lg {
+    min-width: $app-w-lg;
+    width: $app-w-lg;
+  }
+}
