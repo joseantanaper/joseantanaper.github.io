@@ -1,2 +1,0 @@
-import{j as s}from"./index-f8731d39.js";const r="?rel=0&showinfo=0&autohide=1",n=({title:a,url:e,aspectRatio:o})=>s.jsxs(s.Fragment,{children:[s.jsx("iframe",{style:{aspectRatio:o},loading:"lazy",allowTransparency:!0,allowFullScreen:!0,title:a,className:"w-100 shadow rounded bg-black",src:e+r}),s.jsx("span",{className:"float-end mx-3",children:a})]});export{n as default};
-//# sourceMappingURL=Iframe-8de89b59.js.map
