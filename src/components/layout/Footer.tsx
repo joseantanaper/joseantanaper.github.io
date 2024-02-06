@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
           <div className="col-12 col-md-8 fw-lighter">
             <div className="row ms-3">
-              <div className="col-12 col-lg-4 text-truncate">
+              <div className="col-12 col-lg-4 text-truncate mt-5 mt-md-0">
                 <h5>{t('Main Sections')}</h5>
                 <div className="list-group list-group-flush">
                   {[...(routeLinks as RouteLink[])]
@@ -59,7 +59,7 @@ const Footer = () => {
                     ))}
                 </div>
               </div>
-              <div className="col-12 col-lg-4 text-center text-truncate">
+              <div className="col-12 col-lg-4 text-center text-truncate  mt-5 mt-md-0">
                 <h5>{t('Secondary Sections')}</h5>
                 <div className="list-group list-group-flush">
                   {[...routeLinks]
@@ -77,7 +77,7 @@ const Footer = () => {
                     })}
                 </div>
               </div>
-              <div className="col-12 col-lg-4 text-end text-truncate">
+              <div className="col-12 col-lg-4 text-end text-truncate mt-5 mt-md-0">
                 <h5>{t('More')}</h5>
                 <div className="list-group list-group-flush">
                   {moreLinks.map((moreLink: RouteLink, index: number) => (

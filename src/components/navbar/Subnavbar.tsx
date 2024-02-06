@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import { NavTitle } from './NavTitle'
 import { IconMap } from '@components/widgets/Icon'
 import { ButtonToggler } from '@components/widgets/Button'
+import { dividerClass } from '@/util/styleTools'
 
 import { t } from 'i18next'
 
@@ -36,10 +37,12 @@ export const Subnavbar = ({ title, subtitle, iconmap, toolbar }: Props) => {
           {/* </div> */}
 
           {/* Nav Menu Start */}
-          <div className="row col">
+          <div className={`row col`}>
             {toolbar && (
-              <div className="collapse navbar-collapse" id="subnavbarMenu">
-                <ul className="navbar-nav navbar-nav-scroll border-start ps-3">
+              <div className={`collapse navbar-collapse`} id="subnavbarMenu">
+                <ul
+                  className={`navbar-nav navbar-nav-scroll border-start ${dividerClass}`}
+                >
                   {toolbar}
                 </ul>
               </div>

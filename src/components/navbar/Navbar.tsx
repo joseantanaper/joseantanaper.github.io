@@ -10,12 +10,11 @@ import { NavMenu } from './NavMenu'
 import { LocaleToggler } from '../toggler/LocaleToggler'
 import { Clock } from '@components/navbar/Clock'
 import { NavTitle } from '@components/navbar/NavTitle'
-import { Avataro } from '@/components/widgets/Avataro'
+import { Avataro } from '@components/widgets/Avataro'
 import { Icon, IconMap } from '@components/widgets/Icon'
 import { useAppSelector } from '@app/hooks'
-import { buttonStyle } from '@/util/styleTools'
+import { buttonStyle, dividerClass } from '@/util/styleTools'
 
-// import { routeLinks, RouteLink } from '@config/nav.config'
 import { routeLinks, RouteLink } from '@config/routes/routes'
 
 import { t } from 'i18next'
@@ -43,21 +42,19 @@ export const Navbar = ({ title, subtitle }: Props) => {
   const currentClockMode = useAppSelector(selectClockMode)
   const currentUsername = useAppSelector(selectUsername)
 
-  // const dividerClass = 'border-start ps-1 ms-1 ps-sm-2 ms-sm-2 ps-lg-3 ms-lg-3'
-  const dividerClass = 'ps-1 ms-1 ps-sm-2 ms-sm-2 ps-lg-3 ms-lg-3'
-
   return (
     <>
       <nav className="app-main-navbar-crystal navbar border-bottom shadow-sm fixed-top">
         {/* Navbar Begin */}
         <div className="app-navbar-container container-fluid flex-nowrap">
+          {/* Main Toggler */}
           <ButtonToggler targetId="offcanvasMenuNav" extraClass="p-0">
             <Avataro imgClass="rounded" />
           </ButtonToggler>
           {/* Title */}
           <NavTitle title={t(title)} subtitle={t(subtitle!)} type={0} />
-          {/* Menu */}
 
+          {/* Menu */}
           <div className={`d-none d-lg-block border-start ${dividerClass}`}>
             <NavMenu routeLinks={routeLinks as RouteLink[]} />
           </div>
