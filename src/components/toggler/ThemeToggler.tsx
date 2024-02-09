@@ -1,10 +1,6 @@
 import { useEffect, ReactNode } from 'react'
 import { Icon, IconMap } from '@components/widgets/Icon'
-import {
-  Button,
-  ButtonSplit,
-  ButtonSplitPlus,
-} from '@components/widgets/Button'
+import { Button, ButtonSplit } from '@components/widgets/Button'
 import { useAppSelector, useAppDispatch } from '@app/hooks'
 import {
   Theme,
@@ -184,41 +180,36 @@ export const ThemeToggler = ({
 
   return (
     <>
-      <div className="">
-        <ButtonSplitPlus
-          className={`app-w-md ${btnClass}`}
-          dropdown={dropdownMenu}
-        >
-          <Button
-            className={`${btnClass}`}
-            extraClass="app-w-md"
-            iconmap={
-              theme === Theme.Light
-                ? IconMap.ThemeLight
-                : theme === Theme.Dark
-                ? IconMap.ThemeDark
-                : IconMap.ThemeAuto
-            }
-            iconClass="app-rotate"
-            label={theme}
-            labelClass="text-capitalize d-none d-md-inline"
-            onClick={() => handleClick()}
-          />
-          <Button
-            className={`${btnClass}`}
-            extraClass="app-w-md"
-            iconmap={
-              currentBtnTheme === BtnTheme.Outline
-                ? IconMap.BtnThemeOutline
-                : IconMap.BtnThemeSolid
-            }
-            label={`${currentBtnTheme === 0 ? 'Outline' : 'Solid'}`}
-            labelClass="text-capitalize d-none d-md-inline"
-            onClick={() => handleBtnThemeClick()}
-            // dropdownBreakdown="sm"
-          />
-        </ButtonSplitPlus>
-      </div>
+      <ButtonSplit className={`app-w-md ${btnClass}`} dropdown={dropdownMenu}>
+        <Button
+          className={`${btnClass}`}
+          extraClass="app-w-md"
+          iconmap={
+            theme === Theme.Light
+              ? IconMap.ThemeLight
+              : theme === Theme.Dark
+              ? IconMap.ThemeDark
+              : IconMap.ThemeAuto
+          }
+          iconClass="app-rotate"
+          label={theme}
+          labelClass="text-capitalize d-none d-md-inline"
+          onClick={() => handleClick()}
+        />
+        <Button
+          className={`${btnClass}`}
+          extraClass="app-w-md"
+          iconmap={
+            currentBtnTheme === BtnTheme.Outline
+              ? IconMap.BtnThemeOutline
+              : IconMap.BtnThemeSolid
+          }
+          label={`${currentBtnTheme === 0 ? 'Outline' : 'Solid'}`}
+          labelClass="text-capitalize d-none d-md-inline"
+          onClick={() => handleBtnThemeClick()}
+          // dropdownBreakdown="sm"
+        />
+      </ButtonSplit>
     </>
   )
 }

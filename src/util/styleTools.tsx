@@ -32,3 +32,5 @@ export const buttonStyle = (
 
 export const dividerClass =
   'ps-0 ms-0 ps-sm-1 ms-sm-1 ps-md-2 ms-md-2 ps-lg-3 ms-lg-3'
+
+export const dividerHrClass = 'mx-0 mx-sm-1 mx-md-2 mx-lg-3'

@@ -87,8 +87,8 @@
 }
 
 .btn,
-.dropdown-item,
 .navbar-toggler,
+.dropdown-item,
 .nav-link,
 .form-control,
 .col-form-label {
@@ -96,6 +96,7 @@
 }
 
 .list-group-item {
+
   padding: $app-button-y-padding*2 $app-button-x-padding;
 
   svg {
@@ -374,11 +375,6 @@ svg+span {
 }
 
 .btn-group {
-
-  // margin: 0px !important;
-  // padding: 0px !important;
-
-
 
   .dropdown-toggle-split {
     min-width: 2rem !important;

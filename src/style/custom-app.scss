@@ -244,9 +244,11 @@
 }
 
 .btn:active,
-.navbar-toggler:active {
+.btn:hover:active,
+.navbar-toggler:active,
+.navbar-toggler:hover:active {
   svg.app-rotate {
-    animation: rotation 1s linear infinite;
+    animation: rotation 1s linear infinite !important;
   }
 }
 
@@ -456,4 +458,18 @@ ul.app-custom-list {
     min-width: $app-w-lg;
     width: $app-w-lg;
   }
+}
+
+
+@font-face {
+  font-family: "Digital7";
+  src: local("Digital7"), url("@assets/font/digital-7 (mono).ttf") format("truetype");
+  font-weight: bold;
+}
+
+.app-clock {
+  font-family: "Digital7" !important;
+  font-size: 140%;
+  padding: 0px !important;
+  text-shadow: 1px 1px 0 rgba(0 0 0 / 0.2), 0 0 2px red;
 }

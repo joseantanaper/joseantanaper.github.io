@@ -113,115 +113,6 @@ export const ButtonSplit = ({
   className = 'btn',
   extraClass = '',
   disabled = false,
-  iconmap,
-  iconSize,
-  label,
-  labelClass,
-  async = false,
-  onClick,
-  children,
-  dropdown,
-  dropdownBreakdown = 'md',
-}: Props) => {
-  const handleClick = (name: string) => {
-    if (onClick) {
-      console.log('Button', 'handleClick')
-      if (async) {
-        document
-          .querySelectorAll('button[name="' + name + '"]')
-          .forEach((button) => {
-            button.classList.add('disabled')
-            button.querySelectorAll('svg').forEach((icon) => {
-              icon.classList.add('d-none')
-            })
-            button.querySelectorAll('div[class^="spinner"]').forEach((spin) => {
-              spin.classList.remove('d-none')
-            })
-          })
-        document
-          .querySelectorAll('button[name="' + name + '"]')
-          .forEach((spin) => {
-            spin.classList.remove('invisible')
-          })
-      }
-      onClick().then(() => {
-        if (async) {
-          document
-            .querySelectorAll('button[name="' + name + '"]')
-            .forEach((button) => {
-              button.classList.remove('disabled')
-              button.querySelectorAll('svg').forEach((icon) => {
-                icon.classList.remove('d-none')
-              })
-              button
-                .querySelectorAll('div[class^="spinner"]')
-                .forEach((spin) => {
-                  spin.classList.add('d-none')
-                })
-            })
-        }
-      })
-    }
-  }
-
-  const mainButton = (btnClass?: string) => (
-    <>
-      <button
-        name={name}
-        className={buttonClass(className, btnClass)}
-        disabled={disabled}
-        onClick={() =>
-          onClick ? (async ? handleClick(name!) : onClick()) : null
-        }
-      >
-        {async && (
-          <div className="spinner-border spinner-border-sm d-none"></div>
-        )}
-        {iconmap ? <Icon id={iconmap} size={iconSize} /> : null}
-        {label ? (
-          <span className={`text-truncate ${labelClass}`}>
-            <Trans>{label}</Trans>
-          </span>
-        ) : null}
-      </button>{' '}
-      {children ? children : null}
-    </>
-  )
-
-  const dropButton = () => (
-    <button
-      type="button"
-      className={
-        `dropdown-toggle dropdown-toggle-split ` +
-        buttonClass(className, extraClass) +
-        (dropdownBreakdown ? ` d-none d-${dropdownBreakdown}-block` : '')
-      }
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      <span className="visually-hidden">Toggle Dropdown</span>
-    </button>
-  )
-  return (
-    <>
-      {mainButton(`d-${dropdownBreakdown}-none`)}
-      <div className={`btn-group text-nowrap`}>
-        {mainButton(`d-none d-${dropdownBreakdown}-block`)}
-        {!className && <div className="vr" style={{ opacity: 0.06 }}></div>}
-        {dropButton()}
-        <ul role="menu" className="dropdown-menu shadow">
-          {dropdown}
-        </ul>
-      </div>
-    </>
-  )
-}
-
-export const ButtonSplitPlus = ({
-  name,
-  className = 'btn',
-  extraClass = '',
-  disabled = false,
   style,
   children,
   dropdown,
@@ -232,9 +123,16 @@ export const ButtonSplitPlus = ({
       <button
         type="button"
         className={
-          `btn dropdown-toggle dropdown-toggle-split ` +
-          buttonClass(className, extraClass) +
-          (dropdownBreakdown ? ` d-none d-${dropdownBreakdown}-block` : '')
+          `d-none d-${dropdownBreakdown}-block ` +
+          (className.includes('btn-')
+            ? `btn dropdown-toggle dropdown-toggle-split ${buttonClass(
+                className,
+                extraClass
+              )} `
+            : `border-start border-1 btn dropdown-toggle dropdown-toggle-split ${buttonClass(
+                className,
+                extraClass
+              )} `)
         }
         data-bs-toggle="dropdown"
         aria-expanded="false"
@@ -248,9 +146,6 @@ export const ButtonSplitPlus = ({
     <>
       <div className="btn-group" style={style}>
         {children}
-        {!className.includes('btn') && (
-          <div className="vr" style={{ opacity: 0.06 }}></div>
-        )}
         {dropButton()}
         <ul
           role="menu"
