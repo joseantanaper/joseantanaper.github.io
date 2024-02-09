@@ -23,6 +23,8 @@ interface Props {
 }
 
 export const PageLayout = ({ subnavbar = false, toolbar, children }: Props) => {
+  console.log('PageLayout', 'constructor')
+
   const loader = (useLoaderData() ?? {}) as LoaderData
 
   const { title, subtitle, description, iconmap } = loader
@@ -30,7 +32,7 @@ export const PageLayout = ({ subnavbar = false, toolbar, children }: Props) => {
   const { t } = useTranslation()
 
   useEffect(() => {
-    console.log('PageLayout', 'useEffect')
+    console.log('PageLayout', 'useEffect[]')
 
     const showTitle = () => {
       if (window.scrollY > 100) {

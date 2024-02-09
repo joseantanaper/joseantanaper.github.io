@@ -12,7 +12,7 @@ export const Linko = ({ iconmap, label, href }: Props) => {
   const { t, i18n } = useTranslation()
   return (
     <>
-      <a className="nav-link" href={href}>
+      <a className={`nav-link`} href={href}>
         <Icon id={iconmap} />
         {label ? <span>{t(label)}</span> : null}
       </a>

@@ -86,7 +86,7 @@ const Root = () => {
   const theme = document.documentElement.getAttribute('data-bs-theme')
 
   const loading = () => {
-    alert('loading')
+    console.log('Root', 'loading...')
   }
 
   return (

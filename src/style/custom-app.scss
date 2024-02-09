@@ -471,5 +471,11 @@ ul.app-custom-list {
   font-family: "Digital7" !important;
   font-size: 140%;
   padding: 0px !important;
-  text-shadow: 1px 1px 0 rgba(0 0 0 / 0.2), 0 0 2px red;
+  text-shadow: 1px 1px 0 rgba(0 0 0 / 0.2);
+}
+
+.app-scrollspy-container {
+  background: red;
+  overflow-y: scroll;
+  position: relative;
 }

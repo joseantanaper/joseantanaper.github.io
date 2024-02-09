@@ -97,22 +97,30 @@ export const Clock = ({ currentClockMode }: Props) => {
           <Icon iconmap={IconMap.Clock} extra="app-rotate opacity-25" />
           <span
             className="text-danger fw-light d-inline-block app-clock"
-            style={{ margin: '-8px 0px' }}
+            style={{ margin: '-8px 0px', minWidth: '62px' }}
           >
-            <span>{time.substring(0, time.indexOf(':'))}</span>
-            <span className="opacity-75" style={{ margin: '-2px' }}>
-              :
-            </span>
-            <span>
-              {time.substring(time.indexOf(':') + 1, time.indexOf(':') + 3)}
-            </span>
-            <span className="opacity-75" style={{ margin: '-2px' }}>
-              {currentClockMode === ClockMode.Long ? ':' : null}
-            </span>
-            <span>
-              {currentClockMode === ClockMode.Long
-                ? time.substring(time.indexOf(':') + 4, time.indexOf(':') + 6)
-                : null}
+            <span
+              style={{
+                position: 'absolute',
+                top: '5px',
+                left: '36px',
+              }}
+            >
+              <span>{time.substring(0, time.indexOf(':'))}</span>
+              <span className="opacity-75" style={{ margin: '-2px' }}>
+                :
+              </span>
+              <span>
+                {time.substring(time.indexOf(':') + 1, time.indexOf(':') + 3)}
+              </span>
+              <span className="opacity-75" style={{ margin: '-2px' }}>
+                {currentClockMode === ClockMode.Long ? ':' : null}
+              </span>
+              <span>
+                {currentClockMode === ClockMode.Long
+                  ? time.substring(time.indexOf(':') + 4, time.indexOf(':') + 6)
+                  : null}
+              </span>
             </span>
           </span>
         </Button>

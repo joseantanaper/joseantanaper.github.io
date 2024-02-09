@@ -37,7 +37,7 @@ export const Subnavbar = ({ title, subtitle, iconmap, toolbar }: Props) => {
           {/* </div> */}
 
           {/* Nav Menu Start */}
-          <div className={`row col`}>
+          <div id="app-subnavbar-menu" className={`row col`}>
             {toolbar && (
               <div className={`collapse navbar-collapse`} id="subnavbarMenu">
                 <ul
