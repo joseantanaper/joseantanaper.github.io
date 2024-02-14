@@ -467,7 +467,13 @@ ul.app-custom-list {
   font-weight: bold;
 }
 
+
 .app-clock {
+  span {
+    opacity: 1;
+  }
+
+  opacity: 1;
   font-family: "Digital7" !important;
   font-size: 140%;
   padding: 0px !important;

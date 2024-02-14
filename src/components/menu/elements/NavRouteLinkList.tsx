@@ -1,13 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { RouteLink, routeLinkIsGroup } from '@/config/routes/routes'
-import { NavLinko } from '@/components/widgets/NavLinko'
+import { routeLinks, RouteLink, routeLinkIsGroup } from '@config/routes/routes'
+import { NavLinko } from '@components/widgets/NavLinko'
 import { Accordion } from './Accordion'
-import { Input } from '@/components/widgets/Input'
+import { Input } from '@components/widgets/Input'
 import { t } from 'i18next'
 
 interface Props {
-  routeLinks: RouteLink[]
+  // routeLinks: RouteLink[]
   parentIndex: number
 }
 
@@ -50,7 +50,7 @@ const renderRouteLink = (
   }
 }
 
-export const NavRouteLinkList = ({ routeLinks, parentIndex }: Props) => {
+export const NavRouteLinkList = ({ parentIndex }: Props) => {
   const [search, setSearch] = useState('')
   const [linkCount, setLinkCount] = useState(0)
   const [filteredRouteLinks, setFilteredRouteLinks] = useState(routeLinks)

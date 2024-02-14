@@ -5,7 +5,6 @@ import { Subnavbar } from '../navbar/Subnavbar'
 import { Trans } from 'react-i18next'
 import { useLoaderData } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import Footer from './Footer'
 
 export interface LoaderData {
   title?: string
@@ -140,8 +139,6 @@ export const PageLayout = ({ subnavbar = false, toolbar, children }: Props) => {
         iconmap={IconMap.GoTop}
         onClick={goTop}
       />
-
-      <Footer />
     </div>
   )
 }

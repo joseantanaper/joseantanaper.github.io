@@ -15,6 +15,8 @@ export const NavLinko = ({ routeLink, external, mode = 'menu' }: Props) => {
   const className =
     mode === 'menu' ? 'list-group-item list-group-item-action' : 'nav-link'
 
+  console.log('NavLink', routeLink.url)
+
   return (
     <NavLink
       // isActive only match to the "end"

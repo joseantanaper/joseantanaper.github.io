@@ -1,7 +1,8 @@
 import React from 'react'
-import { Avataro } from '@/components/widgets/Avataro'
-import { routeLinks, moreLinks, RouteLink } from '@/config/routes/routes'
-import { NavLinko } from '../widgets/NavLinko'
+import { Avataro } from '@components/widgets/Avataro'
+import { NavRouteLinkList } from '@components/menu/elements/NavRouteLinkList'
+import { routeLinks, moreLinks, RouteLink } from '@config/routes/routes'
+import { NavLinko } from '@components/widgets/NavLinko'
 import { Trans } from 'react-i18next'
 import { useTranslation } from 'react-i18next'
 
@@ -16,7 +17,7 @@ const Footer = () => {
           <div className="col-12 col-md-4 fw-lighter border-end">
             <Avataro size="120px" className="d-flex shadow" />
             <br />
-            <p className=" text-justify">
+            <p className="text-justify">
               <Trans>app:footer:bio</Trans>
             </p>
             <br />
@@ -39,11 +40,9 @@ const Footer = () => {
                 Base url:{' '}
                 <span className="text-primary">{import.meta.env.BASE_URL}</span>
               </div>
-              <div>
-                Deploy mark: <span className="text-primary">Hello</span>
-              </div>
             </code>
           </div>
+
           <div className="col-12 col-md-8 fw-lighter">
             <div className="row ms-3">
               <div className="col-12 col-lg-4 text-truncate mt-5 mt-md-0">

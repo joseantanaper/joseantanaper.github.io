@@ -9,6 +9,8 @@ export const buttonStyle = (
 ) => {
   // if (!light) return 'btn-secondary'
   switch (currentTheme) {
+    case null:
+      return ''
     case Theme.Light:
       return currentBtnTheme === BtnTheme.Outline
         ? `btn-outline-${light}`

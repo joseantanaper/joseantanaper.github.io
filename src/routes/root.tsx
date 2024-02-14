@@ -3,7 +3,7 @@
 import { useSSR } from 'react-i18next'
 import { Outlet, Route } from 'react-router-dom'
 import { useEffect } from 'react'
-import { useAppSelector, useAppDispatch } from '@/app/hooks'
+import { useAppSelector, useAppDispatch } from '@app/hooks'
 import {
   Locale,
   selectLocale,
@@ -11,12 +11,14 @@ import {
   setTheme,
   selectTheme,
   installLocale,
-} from '@/app/reducer/app.slice'
+} from '@app/reducer/app.slice'
+
 import { RootState } from '@app/store'
 import { useTranslation } from 'react-i18next'
 
 import { appConfig } from '@config/app.config'
 import { Navbar } from '@components/navbar/Navbar'
+import Footer from '@components/layout/Footer'
 import { Suspense } from 'react'
 import { useLocation, useNavigation, useParams } from 'react-router-dom'
 
@@ -94,8 +96,8 @@ const Root = () => {
       {/* <div className="app-root"> */}
       <Navbar title={appConfig.title} subtitle={appConfig.subtitle} />
       <Outlet />
-      {JSON.stringify(i18n.resolvedLanguage)}
       {/* </div> */}
+      <Footer />
     </Suspense>
   )
 }

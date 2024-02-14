@@ -95,15 +95,11 @@ export const Clock = ({ currentClockMode }: Props) => {
           onClick={handleClick}
         >
           <Icon iconmap={IconMap.Clock} extra="app-rotate opacity-25" />
-          <span
-            className="text-danger fw-light d-inline-block app-clock"
-            style={{ margin: '-8px 0px', minWidth: '62px' }}
-          >
+          <span className="text-danger ms-2 fw-light d-inline-block app-clock">
             <span
               style={{
-                position: 'absolute',
-                top: '5px',
-                left: '36px',
+                position: 'relative',
+                top: '2px',
               }}
             >
               <span>{time.substring(0, time.indexOf(':'))}</span>
