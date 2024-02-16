@@ -48,13 +48,16 @@ const INITIAL_STATE = {
   locale:
     localStorage.getItem(AppKey.LOCALE) ||
     localStorage.getItem(AppKey.I18N) ||
-    'es',
+    Locale.ES,
   clockmode: Number(localStorage.getItem(AppKey.CLOCK_MODE)) ?? ClockMode.Short,
 } as AppState
 
-const mql = window.matchMedia('(prefers-color-scheme: dark)')
-const osTheme = mql.matches ? Theme.Dark : Theme.Light
-mql.addEventListener('change', (e) => setOSTheme(e))
+const mql =
+  window && window.matchMedia
+    ? window.matchMedia('(prefers-color-scheme: dark)')
+    : null
+// const osTheme = mql ? (mql.matches ? Theme.Dark : Theme.Light) : Theme.Light
+if (mql) mql.addEventListener('change', (e) => setOSTheme(e))
 
 const setOSTheme = (e: MediaQueryListEvent) => {
   if (document.documentElement.getAttribute('data-bs-theme-mode') === 'auto') {
@@ -68,7 +71,7 @@ const setOSTheme = (e: MediaQueryListEvent) => {
 
 const installTheme = (theme?: Theme) => {
   console.log('installTheme!', theme)
-  const osTheme = mql.matches ? Theme.Dark : Theme.Light
+  const osTheme = mql ? (mql.matches ? Theme.Dark : Theme.Light) : Theme.Light
   document.documentElement.removeAttribute('data-bs-theme-mode')
   switch (theme) {
     case Theme.Light:

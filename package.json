@@ -10,6 +10,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
+    "testv": "vitest --reporter verbose",
     "format": "prettier --write .",
     "lint": "eslint --fix .",
     "type-check": "tsc",
@@ -58,34 +59,19 @@
     "vitest": "^0.30.1"
   },
   "eslintConfig": {
-    "ignorePatterns": [
-      "build",
-      "node_modules"
-    ],
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:json/recommended"
-    ],
-    "plugins": [
-      "prettier"
-    ],
+    "ignorePatterns": ["build", "node_modules"],
+    "extends": ["react-app", "react-app/jest", "plugin:json/recommended"],
+    "plugins": ["prettier"],
     "overrides": [
       {
-        "files": [
-          "*.ts",
-          "*.tsx"
-        ],
+        "files": ["*.ts", "*.tsx"],
         "rules": {
           "no-unused-vars": "off",
           "@typescript-eslint/no-unused-vars": "off"
         }
       },
       {
-        "files": [
-          "*.tsx",
-          "**/*.tsx"
-        ],
+        "files": ["*.tsx", "**/*.tsx"],
         "rules": {
           "react/jsx-no-target-blank": "off"
         }

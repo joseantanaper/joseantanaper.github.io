@@ -37,6 +37,19 @@ const Footer = () => {
                 <span className="text-primary">{import.meta.env.MODE}</span>
               </div>
               <div>
+                DEV:{' '}
+                <span className="text-primary">
+                  {import.meta.env.DEV ? 1 : 0}
+                </span>
+              </div>
+              <div>
+                PROD:{' '}
+                <span className="text-primary">
+                  {import.meta.env.PROD ? 1 : 0}
+                </span>
+              </div>
+
+              <div>
                 Base url:{' '}
                 <span className="text-primary">{import.meta.env.BASE_URL}</span>
               </div>
