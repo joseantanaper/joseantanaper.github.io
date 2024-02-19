@@ -19,14 +19,13 @@ const YTVideo = ({ title, url, aspectRatio }: Props) => {
   return (
     <Suspense fallback={<Loading />}>
       <iframe
-        style={{ aspectRatio, opacity: 0.1 }}
+        style={{ aspectRatio }}
         loading="lazy"
-        // allowTransparency={true}
+        allowTransparency={true}
         allowFullScreen={true}
         title={title}
         className="w-100 shadow rounded bg-black"
-        // src={url + options}
-        // data-bs-src={url + options}
+        src={url + options}
       />
       <span className="float-end mx-3">{title}</span>
     </Suspense>
