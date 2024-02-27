@@ -573,6 +573,12 @@ export const translationES = {
         loremSubtitle: 'Contenido Lorem Ipsum',
         loremDescription: 'Esto es un generador aleatorio de Lorem Ipsum',
       },
+      restapi: {
+        restapiTitle: 'REST Api',
+        restapiSubtitle: 'Llamadas a Endpoints externos',
+        restapiDescription:
+          'Esto es un ejemplo de llamadas a Endpoints sobre una REST Api alojada en servicios externos',
+      },
     },
     footer: {
       bio: `Diseñado, desarrollado y desplegado con pasión por

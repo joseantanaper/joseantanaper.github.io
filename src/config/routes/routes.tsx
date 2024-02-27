@@ -5,6 +5,7 @@ import Counter from '@routes/miniapps/counter/Index'
 import Todo from '@routes/miniapps/todo/Index'
 import { IconMap } from '@components/widgets/Icon'
 import { Lorem } from '@routes/playground/lorem/Index'
+import { RestApi } from '@routes/playground/restapi'
 import { Navigate } from 'react-router-dom'
 
 export const enum routePath {
@@ -14,6 +15,7 @@ export const enum routePath {
   TODO = 'miniapps/todo',
   COUNTER = 'miniapps/counter',
   LOREM = 'playground/lorem',
+  RESTAPI = 'playground/restapi',
 }
 
 export interface RouteLink {
@@ -118,6 +120,18 @@ export const routes = [
       }
     },
   },
+  {
+    path: routePath.RESTAPI,
+    element: <RestApi />,
+    loader: () => {
+      return {
+        title: 'app:playground:restapi:restapiTitle',
+        subtitle: 'app:playground:restapi:restapiSubtitle',
+        description: 'app:playground:restapi:restapiDescription',
+        iconmap: IconMap.Locale,
+      }
+    },
+  },
 ]
 
 export const _routes = [
@@ -210,6 +224,10 @@ export const routeLinks: RouteLink[] = [
       {
         ...getRouteLinkByPath(routePath.TODO),
         title: 'ToDo with title changed',
+      },
+      {
+        ...getRouteLinkByPath(routePath.RESTAPI),
+        title: 'REST Api',
       },
     ],
   },

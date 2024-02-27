@@ -22,6 +22,9 @@ import Footer from '@components/layout/Footer'
 import { Suspense } from 'react'
 import { useLocation, useNavigation, useParams } from 'react-router-dom'
 
+import Log from '../lib/logging/Log'
+const log = new Log('routes.Root')
+
 const Root = () => {
   const { locale: currentLocale } = useAppSelector(
     (state: RootState) => state.app
@@ -37,6 +40,13 @@ const Root = () => {
   useEffect(() => {
     // Defaults
     installLocale(i18n.resolvedLanguage!)
+
+    log.debug('Root que pasa????', 123, 456, 789)
+    log.warn('Root que pasa????')
+    log.error('Root que pasa????', 123, 456, 789)
+    log.info('Root que pasa????')
+    log.log('Root que pasa????', 'Probando', { id: 1 })
+    log.trace('Root que pasa????', 'Probando', { id: 1 })
 
     // Check if locale stored. Setting defaults
     // if (!currentLocale) {

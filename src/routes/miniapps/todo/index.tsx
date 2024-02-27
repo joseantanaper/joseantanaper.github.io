@@ -10,12 +10,12 @@ import {
 
 import { useTranslation } from 'react-i18next'
 
-import { PageLayout } from '@/components/layout/PageLayout'
-import { Button } from '@/components/widgets/Button'
-import { Input } from '@/components/widgets/Input'
+import { PageLayout } from '@components/layout/PageLayout'
+import { Button } from '@components/widgets/Button'
+import { Input } from '@components/widgets/Input'
 import { TodoList } from '@components/todo'
-import { Modal } from '@/components/widgets/Modal'
-import { IconMap } from '@/components/widgets/Icon'
+import { Modal } from '@components/widgets/Modal'
+import { IconMap } from '@components/widgets/Icon'
 
 const Todo = () => {
   const { todos } = useAppSelector(selectTodos)

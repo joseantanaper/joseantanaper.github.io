@@ -17,8 +17,9 @@
     "types": ["testing-library__jest-dom"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      // "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
+      "@lib": ["src/lib/*"],
       "@config/*": ["src/config/*"],
       "@components/*": ["src/components/*"],
       "@routes/*": ["src/routes/*"],

@@ -531,6 +531,12 @@ export const translationEN = {
         loremSubtitle: 'Lorem Ipsum Content',
         loremDescription: 'This is a Lorem Ipsum random content generator',
       },
+      restapi: {
+        restapiTitle: 'REST Api',
+        restapiSubtitle: 'External Endpoint calls',
+        restapiDescription:
+          'This is an example of endpoints calls on a REST API hosted in an external service',
+      },
     },
     footer: {
       bio: `Designed, developed and deployed with passion by
