@@ -36,7 +36,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build
-        run: npx vite build
+        run: echo "Build ya está en el repo, se usa build/ existente"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
